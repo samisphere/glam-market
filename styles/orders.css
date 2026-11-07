@@ -1,0 +1,377 @@
+/* Main page */
+.main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 35px 20px;
+}
+
+/* Page title */
+.page-tittle {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--important-text);
+  margin-bottom: 25px;
+}
+
+/* Orders grid */
+.orders.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+/* Individual order */
+.order-container {
+  width: 100%;
+  border: 1px solid var(--input-box-border);
+  background-color: white;
+}
+
+.order-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding: 20px 25px;
+  background-color: #ecc1c13d;
+}
+
+.order-left-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 150px;
+}
+
+.order-right-section {
+  min-width: 0;
+}
+
+.order-placed,
+.order-total,
+.order-id {
+  color: var(--important-text);
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.order-placed-date,
+.order-total-price,
+.order-id-details {
+  color: var(--gray-text);
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 8px;
+}
+
+.order-id-details {
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Ordered product section ---------- */
+
+.order-product-details {
+  width: 100%;
+}
+
+/* Individual ordered product */
+.order-product-details .product-container {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 220px;
+  align-items: center;
+  gap: 25px;
+
+  width: 100%;
+  min-height: 235px;
+  padding: 20px 25px;
+
+  border: none;
+  border-bottom: 1px solid var(--input-box-border);
+  background-color: white;
+}
+
+.order-product-details .product-container:last-child {
+  border-bottom: none;
+}
+
+/* Product image */
+.order-product-details .product-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 190px;
+}
+
+.order-product-details .product-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Product information */
+.order-product-details .product-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.order-product-details .product-name {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.order-product-details .product-arriving-date,
+.order-product-details .product-quantity,
+.order-product-details .product-price {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--gray-text);
+}
+
+.order-product-details .product-price {
+  margin: 0;
+}
+
+/* Buy Again button */
+.buy-again-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  width: 195px;
+  min-height: 43px;
+  margin-top: 2px;
+
+  background-color: var(--button-color);
+  border: none;
+  border-radius: 12px;
+
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buy-again-button:hover {
+  background-color: #efb3a9;
+}
+
+.buy-again-button img {
+  width: 23px;
+  height: 23px;
+}
+
+/* ---------- Product actions ---------- */
+
+.product-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+.product-actions a {
+  text-decoration: none;
+}
+
+.track-package-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  max-width: 210px;
+  min-height: 42px;
+
+  background-color: #faeeee;
+  border: none;
+  border-radius: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--default-text-color);
+
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.track-package-button:hover {
+  background-color: var(--button-color);
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
+   ===================================== */
+
+/* Smaller laptops */
+@media (max-width: 1000px) {
+  .order-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .order-right-section {
+    border-top: 1px solid var(--input-box-border);
+    padding-top: 15px;
+  }
+
+  .order-product-details .product-container {
+    grid-template-columns: 170px minmax(0, 1fr) 170px;
+    gap: 15px;
+  }
+
+  .order-product-details .product-name {
+    font-size: 19px;
+  }
+
+  .order-product-details .product-arriving-date,
+  .order-product-details .product-quantity,
+  .order-product-details .product-price {
+    font-size: 16px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 750px) {
+  .main {
+    padding: 25px 15px;
+  }
+
+  .order-header {
+    padding: 18px;
+  }
+
+  .order-left-section {
+    gap: 15px;
+  }
+
+  .order-placed,
+  .order-total,
+  .order-id {
+    font-size: 18px;
+  }
+
+  .order-placed-date,
+  .order-total-price,
+  .order-id-details {
+    font-size: 16px;
+  }
+
+  .order-product-details .product-container {
+    grid-template-columns: 140px minmax(0, 1fr);
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .order-product-details .product-image-container {
+    height: 160px;
+  }
+
+  .product-actions {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+
+  .track-package-button {
+    max-width: 190px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 500px) {
+  .page-tittle {
+    font-size: 23px;
+  }
+
+  .order-header {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .order-left-section {
+    gap: 10px;
+  }
+
+  .order-placed,
+  .order-total,
+  .order-id {
+    font-size: 15px;
+  }
+
+  .order-placed-date,
+  .order-total-price,
+  .order-id-details {
+    font-size: 13px;
+    margin-top: 5px;
+  }
+
+  .order-product-details .product-container {
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .order-product-details .product-image-container {
+    height: 130px;
+  }
+
+  .order-product-details .product-name {
+    font-size: 16px;
+  }
+
+  .order-product-details .product-arriving-date,
+  .order-product-details .product-quantity,
+  .order-product-details .product-price {
+    font-size: 13px;
+  }
+
+  .buy-again-button {
+    width: 150px;
+    min-height: 36px;
+    font-size: 14px;
+    gap: 7px;
+  }
+
+  .buy-again-button img {
+    width: 19px;
+    height: 19px;
+  }
+
+  .track-package-button {
+    max-width: 150px;
+    min-height: 36px;
+    font-size: 14px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 350px) {
+  .order-left-section {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .order-product-details .product-container {
+    grid-template-columns: 1fr;
+  }
+
+  .order-product-details .product-image-container {
+    height: 180px;
+  }
+
+  .product-actions {
+    grid-column: 1;
+    justify-content: flex-start;
+  }
+}
