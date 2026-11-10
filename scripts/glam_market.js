@@ -1,0 +1,74 @@
+let productsHTML = "";
+products.forEach((product) => {
+  productsHTML += `
+          <div class="product-container">
+          <div class="product-image-container">
+            <img src="${product.image}" alt="" />
+          </div>
+          <div class="product-name">${product.name}</div>
+          <div class="product-rating">
+            <img src="images/ratings/rating-${product.rating.stars * 10}.svg" alt="" />
+            <div class="product-rating-count">${product.rating.count}</div>
+          </div>
+          <div class="product-price">QAR ${(product.priceCents / 100).toFixed(2)}</div>
+          <div class="product-quantity">
+            <select class="quantity-select">
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <div class="product-spacer"></div>
+          <div class="added-to-cart">
+            <img src="images/icons/checkbox.svg" alt="" /> Added
+          </div>
+          <button class="add-to-cart" data-product-id="${product.id}">
+            Add to Cart <img src="images/icons/cart.svg" alt="" />
+          </button>
+        </div>
+  `;
+});
+document.querySelector(".products-grid").innerHTML = productsHTML;
+
+document.querySelectorAll(".add-to-cart").forEach((addCartButton) => {
+  addCartButton.addEventListener("click", () => {
+    const productContainer = addCartButton.closest('.product-container')
+    const selectQuantity = productContainer.querySelector(".quantity-select");
+    const quantity = Number(selectQuantity.value)
+    const productId = addCartButton.dataset.productId;
+    const addedMessge = productContainer.querySelector('.added-to-cart')
+    addedMessge.classList.add('visible')
+    setTimeout(() => {
+      addedMessge.classList.remove('visible')
+    },1500)
+    let matchingItem;
+    cart.forEach((item) => {
+      if (item.productId === productId) {
+        matchingItem = item;
+      }
+    });
+    if (matchingItem) {
+      matchingItem.quantity += quantity;
+    } else {
+      cart.push({
+        productId: productId,
+        quantity: quantity,
+      });
+    }
+    let cartQuantity = 0;
+    cart.forEach((items) => {
+      cartQuantity += items.quantity;
+    });
+
+    console.log(cart);
+
+    document.querySelector(".cart-ammount").innerHTML = cartQuantity;
+  });
+});
