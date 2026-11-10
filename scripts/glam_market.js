@@ -1,3 +1,5 @@
+import { cart, addToCart } from "../data/cart.js";
+import { products } from "../data/products.js";
 let productsHTML = "";
 products.forEach((product) => {
   productsHTML += `
@@ -37,38 +39,33 @@ products.forEach((product) => {
 });
 document.querySelector(".products-grid").innerHTML = productsHTML;
 
+
+function updateCartQunatity() {
+  let cartQuantity = 0;
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+
+  document.querySelector(".cart-ammount").innerHTML = cartQuantity;
+}
+
+function displayAddedMessage(addedMessge) {
+  addedMessge.classList.add("visible");
+  setTimeout(() => {
+    addedMessge.classList.remove("visible");
+  }, 1500);
+}
+
 document.querySelectorAll(".add-to-cart").forEach((addCartButton) => {
   addCartButton.addEventListener("click", () => {
-    const productContainer = addCartButton.closest('.product-container')
+    const productContainer = addCartButton.closest(".product-container");
     const selectQuantity = productContainer.querySelector(".quantity-select");
-    const quantity = Number(selectQuantity.value)
+    const quantity = Number(selectQuantity.value);
     const productId = addCartButton.dataset.productId;
-    const addedMessge = productContainer.querySelector('.added-to-cart')
-    addedMessge.classList.add('visible')
-    setTimeout(() => {
-      addedMessge.classList.remove('visible')
-    },1500)
-    let matchingItem;
-    cart.forEach((item) => {
-      if (item.productId === productId) {
-        matchingItem = item;
-      }
-    });
-    if (matchingItem) {
-      matchingItem.quantity += quantity;
-    } else {
-      cart.push({
-        productId: productId,
-        quantity: quantity,
-      });
-    }
-    let cartQuantity = 0;
-    cart.forEach((items) => {
-      cartQuantity += items.quantity;
-    });
-
-    console.log(cart);
-
-    document.querySelector(".cart-ammount").innerHTML = cartQuantity;
+    const addedMessge = productContainer.querySelector(".added-to-cart");
+    
+    displayAddedMessage(addedMessge)
+    addToCart(productId, quantity);
+    updateCartQunatity();
   });
 });

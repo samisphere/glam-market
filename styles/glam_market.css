@@ -126,6 +126,35 @@
   transform: translateY(0);
   visibility: visible;
 }
+.see-more {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 20px;
+}
+
+.see-more a {
+  display: inline-block;
+  padding: 10px 40px;
+  width: 200px;
+  text-align: center;
+  background-color: var(--header-background);
+  color: var(--default-text-color);
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.see-more a:hover {
+  background-color: #f4b6ab;
+  transform: translateY(-2px);
+}
+
+.see-more a:active {
+  transform: translateY(0);
+}
 
 /* =====================================
    RESPONSIVE DESIGN
