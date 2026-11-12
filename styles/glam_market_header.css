@@ -1,15 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
 
 :root {
   --default-text-color: #1d1b20;
-  --header-background: #ecc1c13d;
+  --header-background: #fdf5f3;
+  --border-bottom: #e8c5c2;
   --icon-color: var(--default-text-color);
   --important-icon-color: #c16b6b;
   --button-color: #f9ccc4;
   --important-text: #964040;
-  --input-box-border: #d9d9d9;
+  --input-box-border: #dfc4c1;
+  --input-box-border-focus: #bd7774;
+  --input-box-background: #fffafa;
   --placeholder: #b3b3b3;
   --gray-text: #555555;
+  --hover: #f7e1df;
 }
 * {
   margin: 0;
@@ -21,28 +25,34 @@ body {
   font-weight: 500;
   color: var(--default-text-color);
 }
+
 header {
   background-color: var(--header-background);
+  background-image: url("../images/backgrounds/header_background.png");
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  padding: 10px 30px 8px;
-  margin: 0%;
+  padding: 10px 30px 0;
+  border-bottom: 1px solid var(--border-bottom);
+  overflow: hidden;
 }
+
 .header-up {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   max-width: 1250px;
+  min-height: 85px;
+  gap: 25px;
 }
 .header-left {
   flex: 0 0 250px;
 }
 .header-left img {
-  width: 196px;
+  width: 165px;
   height: auto;
   object-fit: contain;
 }
@@ -51,19 +61,24 @@ header {
   display: flex;
   align-items: center;
   flex: 1;
-  max-width: 590px;
+  max-width: 500px;
   height: 50px;
 }
 .header-middle input {
+  background: var(--input-box-background);
   width: 100%;
   height: 100%;
-  padding: 0 55px 0 15px;
+  padding: 0 45px 0 15px;
   border: 1px solid var(--input-box-border);
-  border-radius: 15px;
+  border-radius: 25px;
   font-size: 16px;
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
+}
+
+.header-middle input:focus {
+  border-color: var(--input-box-border-focus);
 }
 .search-button {
   position: absolute;
@@ -88,7 +103,7 @@ header {
   justify-content: flex-end;
   margin-left: 25px;
   gap: 25px;
-  flex: 0 0 250px;
+  flex: 0 0 autopx;
 }
 .returns-order {
   display: flex;
@@ -97,12 +112,12 @@ header {
   color: var(--default-text-color);
   font-size: 16px;
   line-height: 1.3;
+  white-space: nowrap;
 }
 .return {
   color: var(--default-text-color);
 }
 .order {
-  white-space: nowrap;
   color: var(--important-text);
   font-size: 24px;
   font-weight: 700;
@@ -145,16 +160,19 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 25px;
-  padding: 3px 10px 5px;
-  margin-top: 10px;
+  gap: 12px;
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 0 12px;
 }
 .header-nav a {
   color: var(--default-text-color);
   text-decoration: none;
   font-weight: 600;
-  font-size: 17px;
-  transition: color 0.3s ease;
+  font-size: 15px;
+  padding: 6px 20px;
+  border-radius: 25px;
+  transition: 0.3s ease;
 }
 .header-nav a:hover {
   color: var(--important-text);
@@ -169,6 +187,12 @@ header {
   text-decoration-thickness: 2px;
   text-underline-offset: 5px;
   font-weight: 700;
+}
+.header-nav a:hover,
+.header-nav a.active {
+  color: #964040;
+  background: #f7e1df;
+  text-decoration: none;
 }
 @media (max-width: 1200px) {
   /* Header */

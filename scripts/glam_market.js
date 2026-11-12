@@ -40,7 +40,7 @@ products.forEach((product) => {
 });
 document.querySelector(".products-grid").innerHTML = productsHTML;
 
-
+updateCartQunatity()
 function updateCartQunatity() {
   let cartQuantity = 0;
   cart.forEach((cartItem) => {

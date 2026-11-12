@@ -1,8 +1,26 @@
+ :root {
+  --default-text-color: #1d1b20;
+  --default-background : #FBF6F3;
+  --header-background: #fdf5f3;
+  --border-bottom: #e8c5c2;
+  --icon-color: var(--default-text-color);
+  --important-icon-color: #c16b6b;
+  --button-color: #f9ccc4;
+  --important-text: #964040;
+  --input-box-border: #dfc4c1;
+  --input-box-border-focus: #bd7774;
+  --input-box-background: #fffafa;
+  --placeholder: #b3b3b3;
+  --gray-text: #555555;
+  --hover: #f7e1df;
+
+}
 .main {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1550px;
   margin: 0 auto;
   padding: 30px 20px;
+  background-color: var(--default-background);
 }
 
 .products-grid {
@@ -14,9 +32,11 @@
   display: flex;
   flex-direction: column;
   border: 1px solid var(--input-box-border);
-  padding: 10px;
+  padding: 14px;
   min-height: 500px;
   background-color: white;
+  border-radius: 12px;
+
 }
 .product-image-container {
   display: flex;
@@ -98,7 +118,7 @@
 }
 
 .product-container button:hover {
-  background-color: #efb3a9;
+  background-color: var(--header-background);
 }
 
 .product-container button img {
