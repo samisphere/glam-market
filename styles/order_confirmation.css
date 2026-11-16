@@ -1,0 +1,475 @@
+@font-face {
+    font-family: "Quicksand";
+    src: url("../fonts/Quicksand-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Quicksand";
+    src: url("../fonts/Quicksand-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Quicksand";
+    src: url("../fonts/Quicksand-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Quicksand";
+    src: url("../fonts/Quicksand-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+:root {
+  --default-text-color: #1d1b20;
+  --header-background: #fdf5f3;
+  --border-bottom: #e8c5c2;
+  --icon-color: var(--default-text-color);
+  --important-icon-color: #c16b6b;
+  --button-color: #f9ccc4;
+  --important-text: #964040;
+  --input-box-border: #dfc4c1;
+  --input-box-border-focus: #bd7774;
+  --input-box-background: #fffafa;
+  --placeholder: #b3b3b3;
+  --gray-text: #555555;
+  --hover: #f7e1df;
+  --error-backgorund: #811112;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Quicksand";
+  font-weight: 500;
+  color: var(--default-text-color);
+}
+header {
+  background-color: var(--header-background);
+  background-image: url("../images/backgrounds/header_background.png");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 15px 35px;
+  min-height: 140px;
+  border-bottom: 1px solid var(--border-bottom);
+}
+
+.header-logo {
+  justify-self: start;
+}
+
+.header-logo img {
+  width: 196px;
+  height: auto;
+  object-fit: contain;
+}
+
+.header-middle {
+  font-weight: 800;
+  font-size: 32px;
+  color: var(--default-text-color);
+  text-align: center;
+}
+.order-page-title {
+  font-weight: 800;
+  font-size: 32px;
+  color: var(--default-text-color);
+  text-align: center;
+}
+
+.header-bow {
+  justify-self: end;
+}
+
+.header-bow img {
+  width: 112px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ==============================
+   GENERAL STYLING
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    color: #242126;
+    background-color: #ffffff;
+}
+
+.main {
+    width: 100%;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 10px 0 40px;
+}
+
+
+/* ==============================
+   CONFIRMATION HEADER
+================================= */
+
+.confirmation-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.confirmation-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.confirmation-message img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
+
+.confirmation-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #a34141;
+}
+
+.confirmation-description {
+    font-size: 20px;
+    font-weight: 600;
+    color: #242126;
+}
+
+
+/* ==============================
+   ORDER REFERENCE
+================================= */
+
+.order-reference {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-top: 30px;
+}
+
+.order-reference-number {
+    font-size: 38px;
+    font-weight: 700;
+    color: #a34141;
+}
+
+.order-reference-label {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+/* ==============================
+   ORDER SUMMARY
+================================= */
+
+.order-summary {
+    width: 100%;
+    background-color: #fbf0f0;
+    border-radius: 10px;
+    padding: 17px 25px 20px;
+    margin-top: 32px;
+}
+
+.order-title {
+    font-size: 21px;
+    font-weight: 700;
+    color: #a34141;
+    margin-bottom: 24px;
+}
+
+.items-shipping {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.items,
+.shipping {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.item-label {
+    display: flex;
+    gap: 5px;
+}
+
+.item-quantity {
+    font-weight: 700;
+}
+
+.total-items-price,
+.shipping-price {
+    color: #606060;
+    font-weight: 700;
+}
+
+
+/* ==============================
+   ORDER TOTAL
+================================= */
+
+.total-button {
+    border-top: 1px solid #999999;
+    margin-top: 16px;
+    padding-top: 10px;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #a34141;
+}
+
+.total-price {
+    color: #606060;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+
+/* ==============================
+   DELIVERY INFORMATION
+================================= */
+
+.delivery-section {
+    margin-top: 46px;
+}
+
+.delivery-section-title {
+    font-size: 21px;
+    font-weight: 700;
+    color: #a34141;
+    margin-bottom: 25px;
+}
+
+.expected-delivery-label {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 18px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.expected-delivery-label img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+
+/* Individual delivery cards */
+
+.each-delivery-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fbf0f0;
+    border-radius: 9px;
+    padding: 10px;
+    margin-bottom: 12px;
+    gap: 15px;
+}
+
+.delivery-products-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.delivery-date-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: #606060;
+}
+
+.delivery-product-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #606060;
+}
+
+.delivery-item-count {
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* ==============================
+   CONFIRMATION BUTTONS
+================================= */
+
+.other-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 45px;
+}
+
+.other-buttons button {
+    width: 100%;
+    min-height: 40px;
+    border-radius: 12px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+
+/* Continue Shopping */
+
+.other-buttons button:first-child {
+    background-color: #facbc4;
+    color: #242126;
+    border: 1px solid #facbc4;
+}
+
+.other-buttons button:first-child:hover {
+    background-color: #f5bcb3;
+}
+
+
+/* View Order Details */
+
+.other-buttons button:last-child {
+    background-color: #fbf0f0;
+    color: #242126;
+    border: 1px solid #c96b6b;
+}
+
+.other-buttons button:last-child:hover {
+    background-color: #f5e2e2;
+}
+
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 768px) {
+
+    .main {
+        width: 100%;
+        padding: 15px 20px 30px;
+    }
+
+    .confirmation-title {
+        font-size: 23px;
+    }
+
+    .confirmation-description {
+        font-size: 16px;
+    }
+
+    .order-reference-number {
+        font-size: 30px;
+    }
+
+    .order-reference-label {
+        font-size: 16px;
+    }
+
+    .order-summary {
+        padding: 17px 18px;
+    }
+
+    .order-total,
+    .total-price {
+        font-size: 21px;
+    }
+
+    .delivery-section {
+        margin-top: 35px;
+    }
+
+    .other-buttons {
+        margin-top: 30px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .main {
+        padding: 15px 14px 25px;
+    }
+
+    .confirmation-title {
+        font-size: 21px;
+    }
+
+    .confirmation-description {
+        font-size: 14px;
+    }
+
+    .order-reference-number {
+        font-size: 27px;
+    }
+
+    .order-title {
+        font-size: 19px;
+    }
+
+    .items,
+    .shipping {
+        font-size: 14px;
+    }
+
+    .order-total,
+    .total-price {
+        font-size: 18px;
+    }
+
+    .delivery-date-label {
+        font-size: 14px;
+    }
+
+    .delivery-item-count {
+        font-size: 14px;
+    }
+
+    .expected-delivery-label {
+        gap: 15px;
+    }
+
+    .other-buttons button {
+        font-size: 14px;
+    }
+}
+

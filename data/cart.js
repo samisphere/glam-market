@@ -1,22 +1,22 @@
-//export let cart = JSON.parse(localStorage.getItem("cart")) || [];
-export let cart = [
-  {
-    productId: "RK0001",
-    quantity: 2,
-    deliveryOptionId: "DRK001",
-  },
-  {
-    productId: "RK0003",
-    quantity: 2,
-    deliveryOptionId: "DRK002",
-  },
-  ,
-  {
-    productId: "RK0004",
-    quantity: 2,
-    deliveryOptionId: "DRK003",
-  },
-];
+export let cart = JSON.parse(localStorage.getItem("cart")) || [];
+// export let cart = [
+//   {
+//     productId: "RK0001",
+//     quantity: 2,
+//     deliveryOptionId: "DRK001",
+//   },
+//   {
+//     productId: "RK0003",
+//     quantity: 2,
+//     deliveryOptionId: "DRK002",
+//   },
+//   ,
+//   {
+//     productId: "RK0004",
+//     quantity: 2,
+//     deliveryOptionId: "DRK003",
+//   },
+// ];
 
 export function addToCart(productId, quantity) {
   let matchingItem;
@@ -98,3 +98,14 @@ export function updateProductQuantity(productId, updateButton) {
   }
   updateButtons(cartQuantity);
 }
+export function updateDeliveryOption(productId, deliveryOptionId){
+  let matchingItem;
+  cart.forEach((cartItem) => {
+    if (cartItem.productId === productId) {
+      matchingItem = cartItem;
+    }
+  });
+  matchingItem.deliveryOptionId = deliveryOptionId
+  saveToStorage()
+}
+
