@@ -1,22 +1,9 @@
-export let cart = JSON.parse(localStorage.getItem("cart")) || [];
-// export let cart = [
-//   {
-//     productId: "RK0001",
-//     quantity: 2,
-//     deliveryOptionId: "DRK001",
-//   },
-//   {
-//     productId: "RK0003",
-//     quantity: 2,
-//     deliveryOptionId: "DRK002",
-//   },
-//   ,
-//   {
-//     productId: "RK0004",
-//     quantity: 2,
-//     deliveryOptionId: "DRK003",
-//   },
-// ];
+export let cart;
+loadStorage()
+
+export function loadStorage() {
+  cart = JSON.parse(localStorage.getItem("cart")) || [];
+}
 
 export function addToCart(productId, quantity) {
   let matchingItem;

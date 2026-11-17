@@ -4,19 +4,21 @@ import {
   updateDeliveryOption,
   updateProductQuantity,
 } from "../../data/cart.js";
-import { deliveryOptions, getDeliveryOption } from "../../data/delivery_options.js";
+import {
+  deliveryOptions,
+  getDeliveryOption,
+} from "../../data/delivery_options.js";
 import { getProduct } from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
 import { renderPaymentService } from "./payment.js";
-
 
 export function renderOrderSummary() {
   let cartSummary = "";
   cart.forEach((cartItem) => {
     let matchingProduct = getProduct(cartItem.productId);
     const deliveryOptionId = cartItem.deliveryOptionId;
-    let deliveryOption = getDeliveryOption(deliveryOptionId)
+    let deliveryOption = getDeliveryOption(deliveryOptionId);
     const today = dayjs();
     let deliveryDate = today.add(deliveryOption.delieveryDays, "days");
     const dateString = deliveryDate.format("dddd MMMM D");
@@ -124,5 +126,3 @@ export function renderOrderSummary() {
   }
 }
 renderOrderSummary();
-
-
