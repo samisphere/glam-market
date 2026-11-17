@@ -1,16 +1,16 @@
 class Cart {
   cartItems;
-  localStorageKey;
+  #localStorageKey;
   constructor(localStorageKey) {
-    this.localStorageKey = localStorageKey;
+    this.#localStorageKey = localStorageKey;
     this.loadStorage();
   }
-  loadStorage() {
+  #loadStorage() {
     this.cartItems =
-      JSON.parse(localStorage.getItem(this.localStorageKey)) || [];
+      JSON.parse(localStorage.getItem(this.#localStorageKey)) || [];
   }
-  saveToStorage() {
-    localStorage.setItem(this.localStorageKey, JSON.stringify(this.cartItems));
+  #saveToStorage() {
+    localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cartItems));
   }
   addToCart(productId, quantity) {
     let matchingItem;
@@ -28,7 +28,7 @@ class Cart {
         deliveryOptionId: "DRK001",
       });
     }
-    this.saveToStorage();
+    this.#saveToStorage();
   }
   removeProduct(productId) {
     const newCart = [];
@@ -38,7 +38,7 @@ class Cart {
       }
     });
     this.cartItems = newCart;
-    this.saveToStorage();
+    this.#saveToStorage();
   }
   updateProductQuantity(productId, updateButton) {
     const product = document.querySelector(`.js-item-id-${productId}`);
@@ -95,7 +95,7 @@ class Cart {
       }
     });
     matchingItem.deliveryOptionId = deliveryOptionId;
-    saveToStorage();
+    this.#saveToStorage();
   }
 }
 
