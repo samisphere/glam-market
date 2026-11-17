@@ -96,8 +96,8 @@ function Cart(localStorageKey) {
   return cart;
 }
 
-const cart = Cart();
-const buisnessCart = Cart();
+const cart = Cart('cart-oop');
+const buisnessCart = Cart('cart-buisnessCart');
 cart.loadStorage();
 buisnessCart.loadStorage();
 buisnessCart.addToCart('RK006', 2)
