@@ -3,8 +3,9 @@ import { getDeliveryOption } from "../../data/delivery_options.js";
 import { getProduct } from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
 import { addItems, addToOrders, orders, resetItems } from "../../data/order.js";
+import { renderOrderSummary } from "./order_summary.js";
 
-const placeOrderButton = document.querySelector(".place-order-button");
+const checkoutButton = document.querySelector(".checkout-button");
 let totalItemsCost;
 let shippingCost;
 let totalCost;
@@ -14,7 +15,7 @@ export function renderPaymentService() {
   shippingCost = 0;
   totalCost = 0;
   totalItems = 0;
-  resetItems()
+  resetItems();
   cart.forEach((cartItem) => {
     const matchingProduct = getProduct(cartItem.productId);
     let deliveryOption = getDeliveryOption(cartItem.deliveryOptionId);
@@ -39,21 +40,26 @@ export function renderPaymentService() {
     `QAR ${shippingCost.toFixed(2)}`;
   document.querySelector(".total-price").textContent = `QAR ${totalCost}`;
   if (cart.length === 0) {
-    placeOrderButton.classList.add("button-disabled");
-    placeOrderButton.disabled = true;
+    checkoutButton.classList.add("button-disabled");
+    checkoutButton.disabled = true;
   } else {
-    placeOrderButton.classList.remove("button-disabled");
-    placeOrderButton.disabled = false;
+    checkoutButton.classList.remove("button-disabled");
+    checkoutButton.disabled = false;
   }
+  renderOrderSummary();
 }
 
-placeOrderButton.addEventListener("click", () => {
+checkoutButton.addEventListener("click", () => {
   if (cart.length === 0) {
     return;
   }
 
-  window.location.href = "order_confirmation.html";
+  window.location.href = "checkout.html";
 
-  addToOrders(totalItems, totalItemsCost.toFixed(2), shippingCost.toFixed(2), totalCost.toFixed(2));
-
+  addToOrders(
+    totalItems,
+    totalItemsCost.toFixed(2),
+    shippingCost.toFixed(2),
+    totalCost.toFixed(2),
+  );
 });

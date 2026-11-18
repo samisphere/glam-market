@@ -15,9 +15,8 @@
       </div>
       <div class="header-middle">
         <div class="checkout-page-title">
-          Checkout (
+          Checkout
           <div class="checkout-items-quantity"></div>
-          )
         </div>
       </div>
       <div class="header-bow">
@@ -25,36 +24,160 @@
       </div>
     </header>
     <div class="main">
-      <div class="checkout-title">Review your order</div>
       <div class="order-details">
-        <div class="ordered-products"></div>
-        <div class="order-summary">
-          <div class="order-title">Order Summary</div>
-          <div class="items-shipping">
-            <div class="items">
-              <div class="item-label">
-                Items ( <span class="item-quantity"></span> )
+        <div class="order-details-title">Order Details</div>
+
+        <div class="product-details-grid">
+          <div class="product-item">
+            <img
+              class="product-image"
+              src="images/products/eye/eye1.PNG"
+              alt=""
+            />
+
+            <div class="product-info">
+              <div class="product-name">Long Lasting Mascara</div>
+
+              <div class="product-quantity">
+                Quantity: <span class="quantity">2</span>
               </div>
 
-              <div class="total-items-price">QAR 0</div>
+              <div class="product-unit-price">QAR 45.50</div>
             </div>
-            <div class="shipping">
+
+            <div class="product-total-price">QAR 90.00</div>
+          </div>
+
+          <div class="product-shipping-details">
+            <div class="shipping-label">
+              <img src="images/icons/delivery-icon.svg" alt="" />
               Shipping & handling
-              <div class="shipping-price">QAR 0</div>
+            </div>
+
+            <div class="shipping-cost">QAR 10.99</div>
+          </div>
+        </div>
+      </div>
+      <div class="order-summary">
+        <div class="order-title">Order Summary</div>
+        <div class="items-shipping">
+          <div class="items">
+            <div class="item-label">
+              Items ( <span class="item-quantity"></span> )
+            </div>
+
+            <div class="total-items-price">QAR 0</div>
+          </div>
+          <div class="shipping">
+            Shipping & handling
+            <div class="shipping-price">QAR 0</div>
+          </div>
+        </div>
+        <div class="total-button">
+          <div class="order-total">
+            Order Total
+            <div class="total-price">QAR 0.00</div>
+          </div>
+        </div>
+      </div>
+      <div class="shipping-address-container">
+        <div class="address-title">
+          <img src="images/icons/location.svg" alt="" />
+          Shipping Address
+          <div class="address-subtitle">Enter your delivery details</div>
+          <div class="address-button">
+            <img src="images/icons/plus-circle.svg" alt="" /> Add delivery
+            address
+          </div>
+        </div>
+      </div>
+
+      <div class="payment-container">
+        <div class="payment-heading">
+          <div class="payment-title">
+            <img src="images/icons/wallet.svg" alt="" />
+            Payment Methods
+          </div>
+
+          <div class="address-subtitle">Choose how you would like to pay</div>
+        </div>
+
+        <div class="payment-options">
+          <label class="card-payment-container">
+            <div class="radio-button">
+              <input type="radio" name="paymentMethod" value="card" checked />
+
+              <div class="payment-option-info">
+                <div class="card-payment-title">
+                  <img src="images/icons/wallet.svg" alt="" />
+                  Card Payment
+                </div>
+
+                <div class="payment-option-subtitle">
+                  Pay securely with your debit or credit card
+                </div>
+              </div>
+
+              <div class="card-payment-icons">
+                <img src="images/icons/card-icons.svg" alt="Accepted cards" />
+              </div>
+            </div>
+          </label>
+
+          <label class="cash-payment-container">
+            <div class="radio-button">
+              <input type="radio" name="paymentMethod" value="cash" />
+
+              <div class="payment-option-info">
+                <div class="cash-payment-title">
+                  <img src="images/icons/cash.svg" alt="" />
+                  Cash Payment
+                </div>
+
+                <div class="payment-option-subtitle">
+                  Pay when your order arrives
+                </div>
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <button>Place your order</button>
+      <div class="secure-payment-info">
+        <div class="delivery">
+          <img src="images/icons/delivery-icon-colored.svg" alt="" />
+          <div class="delivery-title">
+            Reliable Delivery
+            <div class="delivery-subtitle">
+              Carefully delivered at your doorstep
             </div>
           </div>
-          <div class="total-button">
-            <div class="order-total">
-              Order Total
-              <div class="total-price">QAR 0.00</div>
+        </div>
+        <div class="payment">
+          <img src="images/icons/shield.svg" alt="" />
+          <div class="delivery-title">
+            Secure Payment
+            <div class="delivery-subtitle">Your payment is safe with us</div>
+          </div>
+        </div>
+        <div class="privacy">
+          <img src="images/icons/lock.svg" alt="" />
+          <div class="delivery-title">
+            Privacy Protection
+            <div class="delivery-subtitle">
+              Your information stays protected
             </div>
-            <button class="place-order-button">Place your order</button>
-            <a href="glam_market.html"><button class="add-more">Add More</button></a>
+          </div>
+        </div>
+        <div class="support">
+          <img src="images/icons/headset.svg" alt="" />
+          <div class="delivery-title">
+            Customer Support
+            <div class="delivery-subtitle">We are here to help</div>
           </div>
         </div>
       </div>
     </div>
-
-    <script type="module" src="/scripts/checkout.js"></script>
   </body>
 </html>

@@ -8,21 +8,28 @@ import {
   deliveryOptions,
   getDeliveryOption,
 } from "../../data/delivery_options.js";
-import { getProduct } from "../../data/products.js";
+import { getProduct, products } from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
 import { renderPaymentService } from "./payment.js";
 
 export function renderOrderSummary() {
   let cartSummary = "";
-  cart.forEach((cartItem) => {
-    let matchingProduct = getProduct(cartItem.productId);
-    const deliveryOptionId = cartItem.deliveryOptionId;
-    let deliveryOption = getDeliveryOption(deliveryOptionId);
-    const today = dayjs();
-    let deliveryDate = today.add(deliveryOption.delieveryDays, "days");
-    const dateString = deliveryDate.format("dddd MMMM D");
-    cartSummary += `
+  let productsHTML = ""
+  const orderSummary = document.querySelector(".order-summary");
+  if (cart.length > 0) {
+    document.querySelector(".empty-cart-container").style.display = "none";
+    document.querySelector(".cart-title").style.display = "block";
+    orderSummary.style.display = "block";
+    cart.forEach((cartItem) => {
+      document.querySelector(".empty-cart-container").style.display = "none";
+      let matchingProduct = getProduct(cartItem.productId);
+      const deliveryOptionId = cartItem.deliveryOptionId;
+      let deliveryOption = getDeliveryOption(deliveryOptionId);
+      const today = dayjs();
+      let deliveryDate = today.add(deliveryOption.delieveryDays, "days");
+      const dateString = deliveryDate.format("dddd MMMM D");
+      cartSummary += `
     <div class="product-all-details js-item-id-${matchingProduct.id}">
     <div class="product-delivery-date">
     Delivery date: <span>${dateString}</span>
@@ -60,8 +67,35 @@ export function renderOrderSummary() {
     </div>
   </div>
   `;
-  });
-
+    });
+    document.querySelector(".ordered-products").innerHTML = cartSummary;
+  } else {
+    document.querySelector(".cart-title").style.display = "none";
+    document.querySelector(".empty-cart-container").style.display = "block";
+    document.querySelector(".order-summary").style.display = "none";
+    document.querySelector(".ordered-products").innerHTML = "";
+    document.querySelector(".cart-title").style.display = "none";
+    products.forEach((product) => {
+      productsHTML += `
+      <div class="product-container">
+        <div class="product-image-container">
+        <img src="${product.image}" alt="" />
+        </div>
+        <div class="product-name">${product.name}</div>
+        <div class="product-rating">
+        <img src="images/ratings/rating-${product.rating.stars * 10}.svg" alt="" />
+        <div class="product-rating-count">${product.rating.count}</div>
+        </div>
+        <div class="product-price">QAR ${formatCurrency(product.priceCents)}</div>
+        <div class="product-spacer"></div>
+        <button class="add-to-cart" data-product-id="${product.id}">
+          Add to Cart <img src="images/icons/cart.svg" alt="" />
+        </button>
+      </div>
+      `;
+    });
+    document.querySelector(".suggestions-products").innerHTML = productsHTML;
+  }
   function deliveryOptionHTML(matchingProduct, cartItem) {
     let html = "";
 
@@ -85,14 +119,13 @@ export function renderOrderSummary() {
     return html;
   }
 
-  document.querySelector(".ordered-products").innerHTML = cartSummary;
-
   document.querySelectorAll(".delete").forEach((deleteButton) => {
     deleteButton.addEventListener("click", () => {
       let productId = deleteButton.dataset.productId;
       removeProduct(productId);
       updateCartQuantity();
       renderPaymentService();
+      renderOrderSummary();
       const product = document.querySelector(`.js-item-id-${productId}`);
       product.remove();
     });
@@ -120,8 +153,10 @@ export function renderOrderSummary() {
     cart.forEach((cartItem) => {
       totalQuantity += cartItem.quantity;
     });
-    document.querySelector(".checkout-items-quantity").innerHTML =
-      `${totalQuantity} items`;
+
+    document.querySelector(".cart-items-quantity").innerHTML =
+      `( ${totalQuantity} items )`;
+
     document.querySelector(".item-quantity").textContent = `${totalQuantity}`;
   }
 }

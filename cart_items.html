@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/cart_items.css" />
+    <link rel="stylesheet" href="styles/glam_market.css">
+    <title>Cart</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-logo">
+        <a href="glam_market.html">
+          <img src="images/icons/glam-logo.svg" alt=""
+        /></a>
+      </div>
+      <div class="header-middle">
+        <div class="cart-page-title">
+          Cart
+          <div class="cart-items-quantity"></div>
+        </div>
+      </div>
+      <div class="header-bow">
+        <img src="images/icons/bow-tie.svg" alt="" />
+      </div>
+    </header>
+    <div class="main">
+      <div class="cart-title">Review your order</div>
+      <div class="order-details">
+        <div class="ordered-products"></div>
+        <div class="empty-cart-container">
+          <div class="empty-cart-message">
+            <div class="empty-cart-content">
+              <img src="images/icons/empty-cart.svg" alt="" />
+              <div class="empty-cart-title">
+                Your cart is empty.
+                <div class="empty-cart-subtitle">Add items in your cart</div>
+              </div>
+            </div>
+            <a class="shop-now-button" href="glam_market.html">Shop Now</a>
+          </div>
+          <div class="suggestions-container">
+            <div class="suggestions-title">
+              <img src="images/icons/sparkle.svg" alt="" />
+              You might like to fill it with
+              <img src="images/icons/sparkle.svg" alt="" />
+            </div>
+            <div class="suggestions-products"></div>
+          </div>
+        </div>
+        <div class="order-summary">
+          <div class="order-title">Order Summary</div>
+          <div class="items-shipping">
+            <div class="items">
+              <div class="item-label">
+                Items ( <span class="item-quantity"></span> )
+              </div>
+
+              <div class="total-items-price">QAR 0</div>
+            </div>
+            <div class="shipping">
+              Shipping & handling
+              <div class="shipping-price">QAR 0</div>
+            </div>
+          </div>
+          <div class="total-button">
+            <div class="order-total">
+              Order Total
+              <div class="total-price">QAR 0.00</div>
+            </div>
+            <button class="checkout-button">Checkout</button>
+            <a href="glam_market.html"
+              ><button class="add-more">Add More</button></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/scripts/cart_items.js"></script>
+  </body>
+</html>
