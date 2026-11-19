@@ -35,7 +35,7 @@ export function renderPaymentService() {
   shippingCost = Number(formatCurrency(shippingCost));
   totalCost = totalItemsCost + shippingCost;
   document.querySelector(".total-items-price").textContent =
-    `QAR ${totalItemsCost}`;
+    `QAR ${totalItemsCost.toFixed((2))}`;
   document.querySelector(".shipping-price").textContent =
     `QAR ${shippingCost.toFixed(2)}`;
   document.querySelector(".total-price").textContent = `QAR ${totalCost}`;
@@ -53,13 +53,5 @@ checkoutButton.addEventListener("click", () => {
   if (cart.length === 0) {
     return;
   }
-
   window.location.href = "checkout.html";
-
-  addToOrders(
-    totalItems,
-    totalItemsCost.toFixed(2),
-    shippingCost.toFixed(2),
-    totalCost.toFixed(2),
-  );
 });

@@ -1,8 +1,8 @@
 import {
   cart,
   removeProduct,
+  updateCartItemQuantity,
   updateDeliveryOption,
-  updateProductQuantity,
 } from "../../data/cart.js";
 import {
   deliveryOptions,
@@ -15,7 +15,7 @@ import { renderPaymentService } from "./payment.js";
 
 export function renderOrderSummary() {
   let cartSummary = "";
-  let productsHTML = ""
+  let productsHTML = "";
   const orderSummary = document.querySelector(".order-summary");
   if (cart.length > 0) {
     document.querySelector(".empty-cart-container").style.display = "none";
@@ -68,7 +68,6 @@ export function renderOrderSummary() {
   </div>
   `;
     });
-    document.querySelector(".ordered-products").innerHTML = cartSummary;
   } else {
     document.querySelector(".cart-title").style.display = "none";
     document.querySelector(".empty-cart-container").style.display = "block";
@@ -94,8 +93,10 @@ export function renderOrderSummary() {
       </div>
       `;
     });
-    document.querySelector(".suggestions-products").innerHTML = productsHTML;
   }
+  document.querySelector(".ordered-products").innerHTML = cartSummary;
+  document.querySelector(".suggestions-products").innerHTML = productsHTML;
+
   function deliveryOptionHTML(matchingProduct, cartItem) {
     let html = "";
 
@@ -125,9 +126,6 @@ export function renderOrderSummary() {
       removeProduct(productId);
       updateCartQuantity();
       renderPaymentService();
-      renderOrderSummary();
-      const product = document.querySelector(`.js-item-id-${productId}`);
-      product.remove();
     });
   });
   document.querySelectorAll(".update").forEach((updateButton) => {
@@ -135,7 +133,6 @@ export function renderOrderSummary() {
       let productId = updateButton.dataset.productId;
       updateProductQuantity(productId, updateButton);
       updateCartQuantity();
-      renderPaymentService();
     });
   });
   updateCartQuantity();
@@ -159,5 +156,55 @@ export function renderOrderSummary() {
 
     document.querySelector(".item-quantity").textContent = `${totalQuantity}`;
   }
+
+  function updateProductQuantity(productId, updateButton) {
+    const product = document.querySelector(`.js-item-id-${productId}`);
+    const quantityEditor = product.querySelector(".quantity-editor");
+    quantityEditor.classList.add("quantity-editor-visible");
+    let minusButton = product.querySelector(".quantity-minus");
+    let plusButton = product.querySelector(".quantity-plus");
+    let cartQuantity = Number(
+      product.querySelector(".quantity-value").textContent,
+    );
+    const quantityLabel = product.querySelector(".quantity-label");
+    if (updateButton.textContent.trim() === "Update") {
+      updateButton.innerHTML = '<img src="../images/icons/check.svg"> Done';
+      minusButton.onclick = () => {
+        cart.forEach((cartItem) => {
+          if (cartItem.productId === productId && cartItem.quantity >= 1) {
+            cartItem.quantity--;
+            product.querySelector(".quantity-value").textContent =
+              `${cartItem.quantity}`;
+            quantityLabel.innerHTML = `${cartItem.quantity}`;
+            updateButtons(cartItem.quantity);
+          }
+        });
+      };
+      plusButton.onclick = () => {
+        cart.forEach((cartItem) => {
+          if (cartItem.productId === productId && cartItem.quantity <= 10) {
+            cartItem.quantity++;
+            product.querySelector(".quantity-value").textContent =
+              `${cartItem.quantity}`;
+            updateButtons(cartItem.quantity);
+
+            quantityLabel.innerHTML = `${cartItem.quantity}`;
+          }
+        });
+      };
+    } else if (updateButton.textContent.trim() === "Done") {
+      updateButton.innerHTML = '<img src="images/icons/repeat.svg"> Update';
+      quantityEditor.classList.remove("quantity-editor-visible");
+
+      updateCartItemQuantity(productId, cartQuantity);
+      renderPaymentService();
+    }
+    function updateButtons(quantity) {
+      minusButton.disabled = quantity <= 1;
+      plusButton.disabled = quantity >= 10;
+    }
+    updateButtons(cartQuantity);
+  }
 }
 renderOrderSummary();
+renderPaymentService();

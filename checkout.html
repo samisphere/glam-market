@@ -27,36 +27,7 @@
       <div class="order-details">
         <div class="order-details-title">Order Details</div>
 
-        <div class="product-details-grid">
-          <div class="product-item">
-            <img
-              class="product-image"
-              src="images/products/eye/eye1.PNG"
-              alt=""
-            />
-
-            <div class="product-info">
-              <div class="product-name">Long Lasting Mascara</div>
-
-              <div class="product-quantity">
-                Quantity: <span class="quantity">2</span>
-              </div>
-
-              <div class="product-unit-price">QAR 45.50</div>
-            </div>
-
-            <div class="product-total-price">QAR 90.00</div>
-          </div>
-
-          <div class="product-shipping-details">
-            <div class="shipping-label">
-              <img src="images/icons/delivery-icon.svg" alt="" />
-              Shipping & handling
-            </div>
-
-            <div class="shipping-cost">QAR 10.99</div>
-          </div>
-        </div>
+        <div class="product-details-grid"></div>
       </div>
       <div class="order-summary">
         <div class="order-title">Order Summary</div>
@@ -84,18 +55,60 @@
         <div class="address-title">
           <img src="images/icons/location.svg" alt="" />
           Shipping Address
-          <div class="address-subtitle">Enter your delivery details</div>
-          <div class="address-button">
-            <img src="images/icons/plus-circle.svg" alt="" /> Add delivery
-            address
+        </div>
+
+        <div class="address-subtitle">Enter your delivery details</div>
+
+        <div class="address-form">
+          <div class="state-form">
+            <div class="state-title">Country</div>
+
+            <input class="country-input" type="text" placeholder="Qatar" />
           </div>
+
+          <div class="city-form">
+            <div class="city-title">City</div>
+
+            <input class="city-input" type="text" placeholder="Doha" />
+          </div>
+
+          <div class="street-form">
+            <div class="street-title">Street</div>
+
+            <input class="street-input" type="text" placeholder="Malik Bin Sinan..." />
+          </div>
+
+          <div class="zone-form">
+            <div class="zone-title">Zone</div>
+
+            <input class="zone-input" type="text" placeholder="90" />
+          </div>
+
+          <div class="building-form">
+            <div class="building-title">Building</div>
+
+            <input class="building-input" type="text" placeholder="1,2,3.." />
+          </div>
+
+          <div class="po-form">
+            <div class="po-title">P.O. Box</div>
+
+            <input class="po-input" type="text" placeholder="008" />
+          </div>
+        </div>
+        <div class="saved-address">
+        </div>
+
+        <div class="address-button">
+          <img src="images/icons/plus-circle.svg" alt="" />
+          Add delivery address
         </div>
       </div>
 
       <div class="payment-container">
         <div class="payment-heading">
           <div class="payment-title">
-            <img src="images/icons/wallet.svg" alt="" />
+            <img src="images/icons/wallet-colored.svg" alt="" />
             Payment Methods
           </div>
 
@@ -106,18 +119,15 @@
           <label class="card-payment-container">
             <div class="radio-button">
               <input type="radio" name="paymentMethod" value="card" checked />
-
               <div class="payment-option-info">
                 <div class="card-payment-title">
                   <img src="images/icons/wallet.svg" alt="" />
                   Card Payment
                 </div>
-
                 <div class="payment-option-subtitle">
                   Pay securely with your debit or credit card
                 </div>
               </div>
-
               <div class="card-payment-icons">
                 <img src="images/icons/card-icons.svg" alt="Accepted cards" />
               </div>
@@ -143,7 +153,7 @@
         </div>
       </div>
 
-      <button>Place your order</button>
+      <button class="place-order-button">Place your order</button>
       <div class="secure-payment-info">
         <div class="delivery">
           <img src="images/icons/delivery-icon-colored.svg" alt="" />
@@ -179,5 +189,6 @@
         </div>
       </div>
     </div>
+    <script type="module" src="scripts/checkout.js"></script>
   </body>
 </html>

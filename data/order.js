@@ -6,7 +6,7 @@ export function resetItems() {
   items = []
 }
 
-export function addToOrders(totalItems,totalItemsCost, shippingCost, totalCost) {
+export function addToOrders(totalItems,totalItemsCost, shippingCost, totalCost, paymentMethod,address) {
   const orderId = `#ORD-RK-${crypto.randomUUID()}`;
   const today = dayjs();
   const orderDateString = today.format("dddd, MMMM D, YYYY");
@@ -20,16 +20,18 @@ export function addToOrders(totalItems,totalItemsCost, shippingCost, totalCost) 
     totalItemsPrice: totalItemsCost,
     shippingCost: shippingCost,
     totalPrice: totalCost,
+    paymentMethod: paymentMethod,
+    address: address
   });
   saveToStorage()
 }
 
-export function addItems(productId, name, quantity, deliveryOptionId) {
+export function addItems(productId, name, quantity, deliveryString) {
   items.push({
     productId: productId,
     productName:name,
     quantity:quantity,
-    deliveryOptions: deliveryOptionId,
+    deliveryOptions: deliveryString,
   });
 }
 
