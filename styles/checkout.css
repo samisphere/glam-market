@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 @font-face {
   font-family: "Quicksand";
   src: url("../fonts/Quicksand-Regular.ttf") format("truetype");
@@ -220,11 +221,38 @@ header {
   margin-bottom: 16px;
 }
 
+.product-details-cat {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  gap: 12px;
+}
+.cat-message img {
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+.cat-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  text-align: center;
+
+  font-family: "Press Start 2P", cursive;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--important-icon-color);
+}
 .product-details-grid {
   border: 1px solid #e4dedd;
   background-color: #fffdfc;
   padding: 12px;
   margin-bottom: 12px;
+  min-width: 0;
 }
 
 .product-item {
@@ -377,7 +405,18 @@ header {
   padding: 14px 16px;
   background-color: transparent;
 }
+.shipping-address-container.error {
+  border: 1px solid var(--error-backgorund);
+  border-radius: 10px;
+  box-shadow:
+    0 0 5px rgba(224, 82, 82, 0.35),
+    0 0 12px rgba(224, 82, 82, 0.25),
+    0 0 20px rgba(224, 82, 82, 0.15);
 
+  transition:
+    box-shadow 0.3s ease,
+    border 0.3s ease;
+}
 .address-title {
   display: flex;
   align-items: center;
@@ -397,6 +436,13 @@ header {
   font-size: 13px;
   font-weight: 400;
   margin-top: 4px;
+}
+.address-subtitle.error {
+  color: var(--error-backgorund);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  transition: color 0.3s ease;
 }
 
 .address-button {
@@ -529,7 +575,7 @@ header {
 /* Address Details */
 .address-details {
   display: grid;
-  grid-template-columns: 1fr ;
+  grid-template-columns: 1fr;
   column-gap: 30px;
   row-gap: 16px;
 }
@@ -564,6 +610,14 @@ header {
   width: 20px;
   height: 20px;
   object-fit: contain;
+}
+.address-saved-message {
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+
+.address-saved-message.fade-out {
+  opacity: 0;
 }
 /* ==============================
    PAYMENT METHODS
@@ -774,7 +828,14 @@ header {
   .main {
     width: 95%;
   }
+  .product-details-cat {
+    grid-template-columns: 1fr;
+  }
 
+  .product-details-cat img {
+    max-width: 110px;
+    grid-row: 1;
+  }
   .secure-payment-info {
     grid-template-columns: repeat(2, 1fr);
     row-gap: 20px;

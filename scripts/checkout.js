@@ -70,7 +70,7 @@ function getPaymentMethod() {
   return document.querySelector('input[name="paymentMethod"]:checked').value;
 }
 let address = null;
-function addAddress(country, city, zone, street, building, po) {
+function addAddress(country, city, zone, street, building, po, phoneNumber) {
   address = {
     country: country,
     city: city,
@@ -78,6 +78,7 @@ function addAddress(country, city, zone, street, building, po) {
     street: street,
     building: building,
     po: po,
+    phoneNumber: phoneNumber,
   };
 }
 function collectInputValue() {
@@ -87,42 +88,65 @@ function collectInputValue() {
   const street = document.querySelector(".street-input").value;
   const building = document.querySelector(".building-input").value;
   const po = document.querySelector(".po-input").value;
+  const phoneNumber = document.querySelector(".phone-input").value;
   document.querySelector(".country-city").textContent = `${city}, ${country}`;
   document.querySelector(".zone").textContent = `Zone: ${zone}`;
   document.querySelector(".street").textContent = street;
   document.querySelector(".building").textContent = building;
   document.querySelector(".po").textContent = po;
-  addAddress(country, city, zone, street, building, po);
+
+  document.querySelector(".phone").textContent = phoneNumber;
+  addAddress(country, city, zone, street, building, po, phoneNumber);
   console.log(address);
 }
 
 // Saving Address
-let addressState = 'empty'
+let addressState = "empty";
 let addressButton = document.querySelector(".add-address-button");
 let addressForm = document.querySelector(".address-form");
-let savedAddressButton = document.querySelector('.save-address')
 let savedAddressCotainer = document.querySelector(".saved-shipping-address");
 addressButton.addEventListener("click", () => {
-  addressButton.style.display = 'none'
+  addressButton.style.display = "none";
   addressForm.style.display = "grid";
-  addressState = 'editing'
+  addressState = "editing";
+  document
+    .querySelector(".shipping-address-container")
+    .classList.remove("error");
+  document.querySelector(".address-subtitle").classList.remove("error");
 });
 
-addressForm.addEventListener('submit', (event) => {
-  event.preventDefault()
-  collectInputValue()
-  addressState = 'saved'
-  addressButton.style.display = 'flex'
+addressForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  collectInputValue();
+  addressState = "saved";
+  addressButton.style.display = "flex";
   addressForm.style.display = "none";
-  savedAddressCotainer.style.display = 'flex'
-  document.querySelector('.address-subtitle').textContent = 'You order will be delivered to'
-})
+  savedAddressCotainer.style.display = "flex";
+  document.querySelector(".address-subtitle").textContent =
+    "You order will be delivered to";
+  const savedMessage = document.querySelector(".address-saved-message");
 
-
+  // Make the svaed message visible
+  savedMessage.style.display = "flex";
+  savedMessage.classList.remove("fade-out");
+  setTimeout(() => {
+    savedMessage.classList.add("fade-out");
+    setTimeout(() => {
+      savedMessage.style.display = "none";
+    }, 600);
+  }, 3000);
+});
 
 document.querySelector(".place-order-button").addEventListener("click", () => {
-  if (address === null || addressState !== 'saved') {
-    alert("Please add your delivery address.");
+  if (address === null || addressState !== "saved") {
+    document
+      .querySelector(".shipping-address-container")
+      .classList.add("error");
+    document.querySelector(".address-subtitle").classList.add("error");
+    document.querySelector(".address-subtitle").textContent =
+      "Please enter your delivery address!";
+    alert("Please enter your delivery address!");
+    return;
   } else {
     const formattedTotalItemCost = formatCurrency(totalItemCost);
     const formattedShippingCost = formatCurrency(shippingCost);
