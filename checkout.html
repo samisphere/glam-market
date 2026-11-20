@@ -59,47 +59,114 @@
 
         <div class="address-subtitle">Enter your delivery details</div>
 
-        <div class="address-form">
+        <form class="address-form">
           <div class="state-form">
             <div class="state-title">Country</div>
 
-            <input class="country-input" type="text" placeholder="Qatar" />
+            <input
+              class="country-input"
+              type="text"
+              placeholder="Qatar"
+              autocomplete="off"
+              required
+            />
           </div>
 
           <div class="city-form">
             <div class="city-title">City</div>
 
-            <input class="city-input" type="text" placeholder="Doha" />
+            <input
+              class="city-input"
+              type="text"
+              placeholder="Doha"
+              autocomplete="off"
+              required
+            />
           </div>
 
           <div class="street-form">
             <div class="street-title">Street</div>
 
-            <input class="street-input" type="text" placeholder="Malik Bin Sinan..." />
+            <input
+              class="street-input"
+              type="text"
+              placeholder="Malik Bin Sinan..."
+              autocomplete="off"
+              required
+            />
           </div>
 
           <div class="zone-form">
             <div class="zone-title">Zone</div>
 
-            <input class="zone-input" type="text" placeholder="90" />
+            <input
+              class="zone-input"
+              type="text"
+              placeholder="90"
+              autocomplete="off"
+              required
+            />
           </div>
 
           <div class="building-form">
             <div class="building-title">Building</div>
 
-            <input class="building-input" type="text" placeholder="1,2,3.." />
+            <input
+              class="building-input"
+              type="text"
+              placeholder="1,2,3.."
+              autocomplete="off"
+              required
+            />
           </div>
 
           <div class="po-form">
             <div class="po-title">P.O. Box</div>
 
-            <input class="po-input" type="text" placeholder="008" />
+            <input
+              class="po-input"
+              type="text"
+              placeholder="008"
+              autocomplete="off"
+              required
+            />
+          </div>
+
+          <button type="submit" class="address-button save-address">
+            <img src="images/icons/location.svg" alt="" />
+            Save delivery address
+          </button>
+        </form>
+        <div class="saved-shipping-address">
+          <div class="saved-country-city-container">
+            <div class="saved-icon"></div>
+            <div class="country-city-zone">
+              <div class="country-city"></div>
+              <div class="zone"></div>
+            </div>
+          </div>
+          <div class="address-divider"></div>
+          <div class="address-details">
+            <div class="address-detail">
+              Street
+              <div class="address-detail-value street"></div>
+            </div>
+            <div class="address-detail">
+              Building
+              <div class="address-detail-value building"></div>
+            </div>
+            <div class="address-detail">
+              P.O. Box
+              <div class="address-detail-value po"></div>
+            </div>
+          </div>
+          <div class="address-saved-message">
+            <img src="images/icons/check-green.svg" alt="" /> Delivery adress
+            saved succesfully
           </div>
         </div>
-        <div class="saved-address">
-        </div>
 
-        <div class="address-button">
+        <div class="address-button add-address-button">
           <img src="images/icons/plus-circle.svg" alt="" />
           Add delivery address
         </div>

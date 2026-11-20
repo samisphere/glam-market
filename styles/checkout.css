@@ -42,6 +42,7 @@
   --gray-text: #555555;
   --hover: #f7e1df;
   --error-backgorund: #811112;
+  --green: #169500;
 }
 * {
   margin: 0;
@@ -466,7 +467,103 @@ header {
 }
 
 .address-form input:focus {
-  border-color: #3C3C43;
+  border-color: #3c3c43;
+}
+
+/* Saved Shipping Address */
+.saved-shipping-address {
+  width: 100%;
+  padding: 20px;
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #fbf6f4;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* Location Section */
+.saved-country-city-container {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.saved-icon {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  background-color: #f7e7e5;
+  background-image: url("../images/icons/delivered-location.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 32px;
+  border-radius: 22px;
+}
+
+.country-city-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.country-city {
+  font-size: 24px;
+  font-weight: 600;
+  color: #171414;
+}
+
+.zone {
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+}
+
+/* Divider */
+.address-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #d6cecc;
+}
+
+/* Address Details */
+.address-details {
+  display: grid;
+  grid-template-columns: 1fr ;
+  column-gap: 30px;
+  row-gap: 16px;
+}
+
+.address-detail {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  column-gap: 20px;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--gray-text);
+}
+
+.address-detail-value {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--default-text-color);
+}
+
+/* Success Message */
+.address-saved-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--green);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.address-saved-message img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 /* ==============================
    PAYMENT METHODS
@@ -702,6 +799,46 @@ header {
 
   .card-payment-icons img {
     width: 85px;
+  }
+  .saved-shipping-address {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .saved-icon {
+    width: 55px;
+    height: 55px;
+    background-size: 26px;
+    border-radius: 16px;
+  }
+
+  .country-city {
+    font-size: 20px;
+  }
+
+  .zone {
+    font-size: 14px;
+  }
+
+  .address-details {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+  }
+
+  .address-detail {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+  }
+
+  .address-detail-value {
+    font-size: 14px;
+    text-align: right;
+  }
+
+  .address-saved-message {
+    font-size: 13px;
   }
 }
 

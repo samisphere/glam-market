@@ -69,16 +69,16 @@ document.querySelector(".total-price").innerHTML =
 function getPaymentMethod() {
   return document.querySelector('input[name="paymentMethod"]:checked').value;
 }
-const address = [];
-function addAddressc(country, city, zone, street, building, po) {
-  address.push({
+let address = null;
+function addAddress(country, city, zone, street, building, po) {
+  address = {
     country: country,
     city: city,
     zone: zone,
     street: street,
     building: building,
     po: po,
-  });
+  };
 }
 function collectInputValue() {
   const country = document.querySelector(".country-input").value;
@@ -87,37 +87,55 @@ function collectInputValue() {
   const street = document.querySelector(".street-input").value;
   const building = document.querySelector(".building-input").value;
   const po = document.querySelector(".po-input").value;
-  addAddressc(country, city, zone, street, building, po);
+  document.querySelector(".country-city").textContent = `${city}, ${country}`;
+  document.querySelector(".zone").textContent = `Zone: ${zone}`;
+  document.querySelector(".street").textContent = street;
+  document.querySelector(".building").textContent = building;
+  document.querySelector(".po").textContent = po;
+  addAddress(country, city, zone, street, building, po);
   console.log(address);
 }
 
-document.querySelector(".place-order-button").addEventListener("click", () => {
-  const formattedTotalItemCost = formatCurrency(totalItemCost);
-  const formattedShippingCost = formatCurrency(shippingCost);
-  const formattedTotalCost = formatCurrency(totalCost);
-  const paymentMethod = getPaymentMethod();
-  addToOrders(
-    totalQuantity,
-    formattedTotalItemCost,
-    formattedShippingCost,
-    formattedTotalCost,
-    paymentMethod,
-    address,
-  );
-  window.location.href = "order_confirmation.html";
-});
-let addressButton = document.querySelector(".address-button");
+// Saving Address
+let addressState = 'empty'
+let addressButton = document.querySelector(".add-address-button");
 let addressForm = document.querySelector(".address-form");
-document.querySelector(".address-button").addEventListener("click", () => {
-  if (addressButton.textContent.trim() === "Add delivery address") {
-    addressButton.innerHTML =
-      '<img src="images/icons/location.svg" alt="" />Save delivery address';
-    addressForm.style.display = "grid";
-  } else if (addressButton.textContent.trim() === "Save delivery address") {
-    addressButton.innerHTML =
-      '<img src="images/icons/location.svg" alt=""/>Change delivery address';
-  } else if (addressButton.textContent.trim() === "Change delivery address") {
-    addressButton.innerHTML =
-      '<img src="images/icons/location.svg" alt="" />Save delivery address';
+let savedAddressButton = document.querySelector('.save-address')
+let savedAddressCotainer = document.querySelector(".saved-shipping-address");
+addressButton.addEventListener("click", () => {
+  addressButton.style.display = 'none'
+  addressForm.style.display = "grid";
+  addressState = 'editing'
+});
+
+addressForm.addEventListener('submit', (event) => {
+  event.preventDefault()
+  collectInputValue()
+  addressState = 'saved'
+  addressButton.style.display = 'flex'
+  addressForm.style.display = "none";
+  savedAddressCotainer.style.display = 'flex'
+  document.querySelector('.address-subtitle').textContent = 'You order will be delivered to'
+})
+
+
+
+document.querySelector(".place-order-button").addEventListener("click", () => {
+  if (address === null || addressState !== 'saved') {
+    alert("Please add your delivery address.");
+  } else {
+    const formattedTotalItemCost = formatCurrency(totalItemCost);
+    const formattedShippingCost = formatCurrency(shippingCost);
+    const formattedTotalCost = formatCurrency(totalCost);
+    const paymentMethod = getPaymentMethod();
+    addToOrders(
+      totalQuantity,
+      formattedTotalItemCost,
+      formattedShippingCost,
+      formattedTotalCost,
+      paymentMethod,
+      address,
+    );
+    window.location.href = "order_confirmation.html";
   }
 });
