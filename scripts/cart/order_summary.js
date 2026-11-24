@@ -39,7 +39,7 @@ export function renderOrderSummary() {
       <div class="product-details">
         <div class="product-name">${matchingProduct.name}</div>
       </div>
-      <div class="product-price">QAR ${formatCurrency(matchingProduct.priceCents)}</div>
+      <div class="product-price">${matchingProduct.getPrice()}</div>
       <div class="product-quantity">
         <div class="quantity-display">Quantity: <span class="quantity-label">${cartItem.quantity}</span>
         </div>
@@ -82,10 +82,10 @@ export function renderOrderSummary() {
         </div>
         <div class="product-name">${product.name}</div>
         <div class="product-rating">
-        <img src="images/ratings/rating-${product.rating.stars * 10}.svg" alt="" />
+        <img src="${product.getStarURL()}" alt="" />
         <div class="product-rating-count">${product.rating.count}</div>
         </div>
-        <div class="product-price">QAR ${formatCurrency(product.priceCents)}</div>
+        <div class="product-price">${product.getPrice()}</div>
         <div class="product-spacer"></div>
         <button class="add-to-cart" data-product-id="${product.id}">
           Add to Cart <img src="images/icons/cart.svg" alt="" />

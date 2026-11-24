@@ -10,7 +10,7 @@ export function addToOrders(totalItems,totalItemsCost, shippingCost, totalCost, 
   const orderId = `#ORD-RK-${crypto.randomUUID()}`;
   const today = dayjs();
   const orderDateString = today.format("dddd, MMMM D, YYYY");
-  const status = "processing";
+  let status = "processing";
   orders.push({
     id: orderId,
     orderDate: orderDateString,
