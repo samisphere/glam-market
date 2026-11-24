@@ -27,6 +27,7 @@
 }
 :root {
   --default-text-color: #1d1b20;
+  --body-background: #fbf5f3;
   --header-background: #fdf5f3;
   --border-bottom: #e8c5c2;
   --icon-color: var(--default-text-color);
@@ -52,6 +53,13 @@ body {
   font-family: "Quicksand";
   font-weight: 500;
   color: var(--default-text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Quicksand";
+  font-weight: 500;
+  color: var(--default-text-color);
+  background-color: var(--body-background);
 }
 header {
   background-color: var(--header-background);
@@ -195,9 +203,9 @@ header {
 
 .main {
   width: 100%;
-  max-width: 1550px;
   padding: 30px 30px;
   margin: 0 auto;
+  min-height: calc(100vh - 200px);
 }
 
 .cart-title {

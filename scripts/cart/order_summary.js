@@ -37,7 +37,7 @@ export function renderOrderSummary() {
     <div class="product">
       <img src="${matchingProduct.image}" alt="" />
       <div class="product-details">
-        <div class="product-name">${matchingProduct.name}</div>
+        <div class="product-name">${matchingProduct.getName()}</div>
       </div>
       <div class="product-price">${matchingProduct.getPrice()}</div>
       <div class="product-quantity">
@@ -80,7 +80,7 @@ export function renderOrderSummary() {
         <div class="product-image-container">
         <img src="${product.image}" alt="" />
         </div>
-        <div class="product-name">${product.name}</div>
+        <div class="product-name">${product.getName()}</div>
         <div class="product-rating">
         <img src="${product.getStarURL()}" alt="" />
         <div class="product-rating-count">${product.rating.count}</div>

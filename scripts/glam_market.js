@@ -1,5 +1,6 @@
 import { cart, addToCart } from "../data/cart.js";
 import { products } from "../data/products.js";
+import { loadSearch } from "./search/search.js";
 let productsHTML = "";
 products.forEach((product) => {
   productsHTML += `
@@ -7,7 +8,7 @@ products.forEach((product) => {
           <div class="product-image-container">
             <img src="${product.image}" alt="" />
           </div>
-          <div class="product-name">${product.name}</div>
+          <div class="product-name">${product.getName()}</div>
           <div class="product-rating">
             <img src="${product.getStarURL()}" alt="" />
             <div class="product-rating-count">${product.rating.count}</div>
@@ -69,3 +70,5 @@ document.querySelectorAll(".add-to-cart").forEach((addCartButton) => {
     updateCartQunatity();
   });
 });
+
+loadSearch()

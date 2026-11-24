@@ -1,29 +1,29 @@
 @font-face {
-    font-family: "Quicksand";
-    src: url("../fonts/Quicksand-Regular.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Quicksand";
+  src: url("../fonts/Quicksand-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Quicksand";
-    src: url("../fonts/Quicksand-Medium.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
+  font-family: "Quicksand";
+  src: url("../fonts/Quicksand-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Quicksand";
-    src: url("../fonts/Quicksand-SemiBold.ttf") format("truetype");
-    font-weight: 600;
-    font-style: normal;
+  font-family: "Quicksand";
+  src: url("../fonts/Quicksand-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Quicksand";
-    src: url("../fonts/Quicksand-Bold.ttf") format("truetype");
-    font-weight: 700;
-    font-style: normal;
+  font-family: "Quicksand";
+  src: url("../fonts/Quicksand-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
 }
 
 :root {
@@ -62,7 +62,9 @@ header {
   position: relative;
   padding: 10px 30px 0;
   border-bottom: 1px solid var(--border-bottom);
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
 }
 
 .header-up {
@@ -190,6 +192,9 @@ header {
   width: 100%;
   margin-top: 8px;
   padding: 8px 0 12px;
+  position: relative;
+  overflow: visible;
+  min-height: 58px;
 }
 .header-nav a {
   color: var(--default-text-color);
@@ -220,6 +225,24 @@ header {
   background: #f7e1df;
   text-decoration: none;
 }
+.cat-decoration {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  left: 65%;
+  top: -90px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.cat-nav-body {
+  position: absolute;
+  width: 55%;
+  height: auto;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+}
 @media (max-width: 1200px) {
   /* Header */
   .header-up {
@@ -246,6 +269,12 @@ header {
 
   .bowtie-icon img {
     width: 85px;
+  }
+   .cat-decoration {
+    width: 150px;
+    height: 125px;
+    left: 68%;
+    top: -65px;
   }
 }
 @media (max-width: 900px) {
@@ -282,6 +311,12 @@ header {
 
   .bowtie-icon img {
     width: 70px;
+  }
+   .cat-decoration {
+    width: 160px;
+    height: 105px;
+    left: 72%;
+    top: -30px;
   }
 
   /* Navigation */
@@ -400,6 +435,9 @@ header {
   .header-nav a {
     font-size: 14px;
   }
+  .cat-decoration {
+    display: none;
+  }
 }
 @media (max-width: 360px) {
   .header-left {
@@ -435,4 +473,41 @@ header {
   .header-nav a {
     font-size: 13px;
   }
+}
+
+
+
+
+
+
+.header-middle {
+  position: relative;
+}
+
+.search-results {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  background: #fffafa;
+  border: 1px solid var(--input-box-border);
+  border-radius: 12px;
+  padding: 8px 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.search-results.active {
+  display: block;
+}
+
+.search-result-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.search-result-item:hover {
+  background: var(--hover);
 }

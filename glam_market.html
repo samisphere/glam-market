@@ -16,12 +16,13 @@
             <img src="images/icons/glam-logo.svg" alt=""
           /></a>
         </div>
-        <div class="header-middle">
-          <input type="text" placeholder="search" />
+        <form class="header-middle">
+          <input class="search-input" type="text" placeholder="search items ..." />
           <button type="submit" class="search-button">
             <img src="images/icons/search.svg" alt="" />
           </button>
-        </div>
+        </form>
+        <div class="search-results"></div>
         <div class="header-right">
           <a href="orders.html" class="returns-order">
             <span class="return">Returns</span>
@@ -45,15 +46,24 @@
       <div class="header-nav">
         <a href="glam_market.html" class="active">Home</a>
         <a href="shop.html">Shop</a>
-        <a href="">Blog</a>
         <a href="">Contact</a>
-        <a href="">Services</a>
-        <a href="">Login</a>
+
+        <div class="cat-decoration">
+          <img
+            class="cat-nav-body"
+            src="images/illustrations/cat-nav-body.svg"
+            alt=""
+          />
+        </div>
       </div>
     </header>
     <div class="main">
       <div class="products-grid"></div>
-      <div class="see-more"><a href="shop.html">See More</a></div>
+      <div class="see-more">
+        <a href="shop.html">See More
+      </a>
+      <img class = 'frog' src="images/illustrations/frog.svg" alt="">
+      </div>
     </div>
     <script type="module" src="scripts/glam_market.js"></script>
   </body>

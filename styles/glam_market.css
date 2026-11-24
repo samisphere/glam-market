@@ -17,7 +17,6 @@
 }
 .main {
   width: 100%;
-  max-width: 1550px;
   margin: 0 auto;
   padding: 30px 20px;
   background-color: var(--default-background);
@@ -148,7 +147,9 @@
 }
 .see-more {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 40px 0 20px;
 }
 
@@ -175,7 +176,9 @@
 .see-more a:active {
   transform: translateY(0);
 }
-
+.frog{
+  width: 170px;
+}
 /* =====================================
    RESPONSIVE DESIGN
    ===================================== */

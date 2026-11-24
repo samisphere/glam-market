@@ -249,6 +249,7 @@ header {
 }
 .product-details-grid {
   border: 1px solid #e4dedd;
+  border-radius: 10px;
   background-color: #fffdfc;
   padding: 12px;
   margin-bottom: 12px;
