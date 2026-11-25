@@ -1,4 +1,5 @@
-import { orders } from "../data/order.js";
+import { getOrderIndex, orders } from "../../data/order.js";
+
 
 let deliveryDetails = "";
 const order = orders[orders.length - 1];
@@ -25,7 +26,13 @@ document.querySelector(".continue").addEventListener("click", () => {
   window.location.href = "glam_market.html";
 });
 document.querySelector(".view-details").addEventListener("click", () => {
-  window.location.href = "tracking.html";
+  const orderIndex = getOrderIndex(order.id)
+  if (orderIndex === -1) return;
+  console.log(orderIndex);
+  window.location.href = `order_id_details.html?orderIndex=${orderIndex}`;
+
 });
-localStorage.removeItem('cart')
+
+
+
 

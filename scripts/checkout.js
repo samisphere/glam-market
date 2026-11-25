@@ -5,6 +5,10 @@ import { getDeliveryOption } from "../data/delivery_options.js";
 import { formatCurrency } from "./utils/money.js";
 import { addItems, addToOrders, orders } from "../data/order.js";
 
+if (cart.length === 0) {
+  window.location.href = 'cart_items.html'
+}
+
 let itemsSummary = "";
 let totalItemCost = 0;
 let shippingCost = 0;
@@ -19,11 +23,12 @@ cart.forEach((cartItem) => {
   const delieveryOption = getDeliveryOption(deliveryOptionId);
   shippingCost += delieveryOption.priceCents;
   const dateString = getDeliveryDateString(deliveryOptionId);
+  const shipping = formatCurrency(delieveryOption.priceCents)
   itemsSummary += `
           <div class="product-item">
             <img
               class="product-image"
-              src="${matchingProduct.image}"
+              src="../assets/${matchingProduct.image}"
               alt=""
             />
             <div class="product-info">
@@ -41,7 +46,7 @@ cart.forEach((cartItem) => {
 
           <div class="product-shipping-details">
             <div class="shipping-label">
-              <img src="images/icons/delivery-icon.svg" alt="" />
+              <img src="../assets//images/icons/delivery-icon.svg" alt="" />
               Shipping & handling
             </div>
 
@@ -54,8 +59,10 @@ cart.forEach((cartItem) => {
     matchingProduct.name,
     cartItem.quantity,
     dateString,
+    shipping
   );
 });
+document.querySelector('.checkout-items-quantity').textContent = `( ${totalQuantity} )`
 document.querySelector(".product-details-grid").innerHTML = itemsSummary;
 totalCost = totalItemCost + shippingCost;
 document.querySelector(".item-quantity").innerHTML = totalQuantity;
@@ -97,7 +104,6 @@ function collectInputValue() {
 
   document.querySelector(".phone").textContent = phoneNumber;
   addAddress(country, city, zone, street, building, po, phoneNumber);
-  console.log(address);
 }
 
 // Saving Address
@@ -160,6 +166,7 @@ document.querySelector(".place-order-button").addEventListener("click", () => {
       paymentMethod,
       address,
     );
-    window.location.href = "order_confirmation.html";
+    window.location.replace("order_confirmation.html");
+    localStorage.removeItem("cart");
   }
 });

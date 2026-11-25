@@ -5,53 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Glam Market</title>
     <link rel="icon" href="images/icons/glam-logo.svg" />
-    <link rel="stylesheet" href="styles/glam_market.css" />
-    <link rel="stylesheet" href="styles/glam_market_header.css" />
+    <link rel="stylesheet" href="styles/components/headers/main_header.css" />
+    <link rel="stylesheet" href="styles/components/products_card.css">
+    <link rel="stylesheet" href="styles/pages/glam_market.css" />
   </head>
   <body>
     <header>
       <div class="header-up">
         <div class="header-left">
           <a href="glam_market.html">
-            <img src="images/icons/glam-logo.svg" alt=""
+            <img src="/assets/images/icons/glam-logo.svg" alt=""
           /></a>
         </div>
         <form class="header-middle">
           <input class="search-input" type="text" placeholder="search items ..." />
           <button type="submit" class="search-button">
-            <img src="images/icons/search.svg" alt="" />
+            <img src="/assets/images/icons/search.svg" alt="" />
           </button>
         </form>
         <div class="search-results"></div>
         <div class="header-right">
-          <a href="orders.html" class="returns-order">
+          <a href="/pages/return_orders.html" class="returns-order">
             <span class="return">Returns</span>
             <span class="order">& Order</span></a
           >
 
           <div class="cart-profile">
-            <a href="cart_items.html" class="cart">
-              <img src="images/icons/main-cart.svg" alt="" />
+            <a href="pages/cart_items.html" class="cart">
+              <img src="/assets/images/icons/main-cart.svg" alt="" />
               <span class="cart-ammount"></span>
             </a>
             <a href="" class="profile">
-              <img src="images/icons/user.svg" alt="" />
+              <img src="/assets/images/icons/user.svg" alt="" />
             </a>
           </div>
           <div class="bowtie-icon">
-            <img src="images/icons/bow-tie.svg" alt="" />
+            <img src="/assets/images/illustrations/bow-tie.svg" alt="" />
           </div>
         </div>
       </div>
       <div class="header-nav">
         <a href="glam_market.html" class="active">Home</a>
-        <a href="shop.html">Shop</a>
+        <a href="/pages/shop.html">Shop</a>
         <a href="">Contact</a>
 
         <div class="cat-decoration">
           <img
             class="cat-nav-body"
-            src="images/illustrations/cat-nav-body.svg"
+            src="/assets/images/illustrations/cat-nav-body.svg"
             alt=""
           />
         </div>
@@ -60,9 +61,9 @@
     <div class="main">
       <div class="products-grid"></div>
       <div class="see-more">
-        <a href="shop.html">See More
+        <a href="pages/shop.html">See More
       </a>
-      <img class = 'frog' src="images/illustrations/frog.svg" alt="">
+      <img class = 'frog' src="/assets/images/illustrations/frog.svg" alt="">
       </div>
     </div>
     <script type="module" src="scripts/glam_market.js"></script>

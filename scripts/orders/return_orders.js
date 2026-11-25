@@ -1,5 +1,7 @@
-import { orders } from "../data/order.js";
-import { getProduct } from "../data/products.js";
+import { updateCartQunatity } from "../../data/cart.js";
+import { getOrderIndex, orders } from "../../data/order.js";
+import { getProduct } from "../../data/products.js";
+import { loadSearch } from "../search/search.js";
 
 if (orders.length === 0) {
   document.querySelector(".page-tittle").style.display = "none";
@@ -20,7 +22,7 @@ if (orders.length === 0) {
       <div class="order-product-details">
         <div class="product-container">
           <div class="product-image-container">
-            <img src="${matchingProduct.image}" alt="" />
+            <img src="../assets/${matchingProduct.image}" alt="" />
           </div>
           <div class="product-details">
             <div class="product-name">${matchingProduct.getName()}</div>
@@ -60,10 +62,10 @@ if (orders.length === 0) {
         </div>
 
         <div class="order-right-section">
-          <div class="order-details">
+          <button class="order-details" data-order-id="${order.id}">
             View Order Details
-            <img src="images/icons/right-carret.svg" alt="" />
-          </div>
+            <img src="../assets/images/icons/right-carret.svg" alt="" />
+          </button>
         </div>
       </div>
 
@@ -74,3 +76,14 @@ if (orders.length === 0) {
 
   document.querySelector(".orders-grid").innerHTML = orderContainerHtml;
 }
+updateCartQunatity()
+loadSearch()
+document.querySelector('.orders-grid').addEventListener('click', (event) => {
+  const button = event.target.closest('.order-details');
+  if (!button) return;
+  const orderId = button.dataset.orderId;
+  const orderIndex = getOrderIndex(orderId)
+  if (orderIndex === -1) return;
+  window.location.href = `order_id_details.html?orderIndex=${orderIndex}`;
+
+});

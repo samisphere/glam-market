@@ -1,28 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 @font-face {
   font-family: "Quicksand";
-  src: url("../fonts/Quicksand-Regular.ttf") format("truetype");
+  src: url("../../assets/fonts/Quicksand-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Quicksand";
-  src: url("../fonts/Quicksand-Medium.ttf") format("truetype");
+  src: url("../../assets/fonts/Quicksand-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Quicksand";
-  src: url("../fonts/Quicksand-SemiBold.ttf") format("truetype");
+  src: url("../../assets/fonts/Quicksand-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Quicksand";
-  src: url("../fonts/Quicksand-Bold.ttf") format("truetype");
+  src: url("../../assets/fonts/Quicksand-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
@@ -55,145 +55,6 @@ body {
   font-weight: 500;
   color: var(--default-text-color);
 }
-header {
-  background-color: var(--header-background);
-  background-image: url("../images/backgrounds/header_background.png");
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  padding: 15px 35px;
-  min-height: 140px;
-  border-bottom: 1px solid var(--border-bottom);
-}
-
-.header-logo {
-  justify-self: start;
-}
-
-.header-logo img {
-  width: 196px;
-  height: auto;
-  object-fit: contain;
-}
-
-.header-middle {
-  font-weight: 800;
-  font-size: 32px;
-  color: var(--default-text-color);
-  text-align: center;
-}
-.checkout-page-title {
-  font-weight: 800;
-  font-size: 32px;
-  color: var(--default-text-color);
-  text-align: center;
-}
-
-.checkout-items-quantity {
-  display: inline;
-  color: var(--important-text);
-  font-weight: 800;
-}
-.checkout-title {
-  font-size: 32px;
-  font-weight: 700;
-  text-align: center;
-  color: #292526;
-}
-
-.header-bow {
-  justify-self: end;
-}
-
-.header-bow img {
-  width: 112px;
-  height: auto;
-  object-fit: contain;
-}
-/* =========================
-   HEADER RESPONSIVENESS
-========================= */
-@media (max-width: 768px) {
-  header {
-    min-height: 110px;
-    padding: 12px 22px;
-  }
-
-  .header-logo img {
-    width: 150px;
-  }
-
-  .header-middle,
-  .checkout-page-title {
-    font-size: 26px;
-  }
-
-  .header-bow img {
-    width: 85px;
-  }
-
-  .checkout-title {
-    font-size: 27px;
-  }
-}
-@media (max-width: 480px) {
-  header {
-    min-height: 85px;
-    padding: 10px 14px;
-  }
-
-  .header-logo img {
-    width: 105px;
-  }
-
-  .header-middle,
-  .checkout-page-title {
-    font-size: 19px;
-    font-weight: 700;
-  }
-
-  .checkout-items-quantity {
-    font-size: 17px;
-  }
-
-  .header-bow img {
-    width: 55px;
-  }
-
-  .checkout-title {
-    font-size: 22px;
-  }
-}
-@media (max-width: 350px) {
-  header {
-    padding: 8px 10px;
-    min-height: 75px;
-  }
-
-  .header-logo img {
-    width: 85px;
-  }
-
-  .header-middle,
-  .checkout-page-title {
-    font-size: 16px;
-  }
-
-  .checkout-items-quantity {
-    font-size: 14px;
-  }
-
-  .header-bow img {
-    width: 42px;
-  }
-}
-
-/* ==============================
-   MAIN CHECKOUT LAYOUT
-============================== */
-
 .main {
   width: 94%;
   max-width: 1250px;
@@ -341,7 +202,7 @@ header {
 ============================== */
 
 .order-summary {
-  background-color: var(--mild-button-background, #f9e9e7);
+  background-color: var(--mild-button-color);
   background-color: #f9e9e7;
   border-radius: 8px;
   padding: 16px 18px;
@@ -541,7 +402,7 @@ header {
   height: 70px;
   flex-shrink: 0;
   background-color: #f7e7e5;
-  background-image: url("../images/icons/delivered-location.svg");
+  background-image: url("../../assets/images/icons/delivered-location.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 32px;

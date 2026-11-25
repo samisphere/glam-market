@@ -1,0 +1,57 @@
+ :root {
+  --default-text-color: #1d1b20;
+  --default-background : #FBF6F3;
+  --header-background: #fdf5f3;
+  --border-bottom: #e8c5c2;
+  --icon-color: var(--default-text-color);
+  --important-icon-color: #c16b6b;
+  --button-color: #f9ccc4;
+  --important-text: #964040;
+  --input-box-border: #dfc4c1;
+  --input-box-border-focus: #bd7774;
+  --input-box-background: #fffafa;
+  --placeholder: #b3b3b3;
+  --gray-text: #555555;
+  --hover: #f7e1df;
+
+}
+.main {
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 20px;
+  background-color: var(--default-background);
+}
+.see-more {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0 20px;
+}
+
+.see-more a {
+  display: inline-block;
+  padding: 10px 40px;
+  width: 200px;
+  text-align: center;
+  background-color: var(--header-background);
+  color: var(--default-text-color);
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.see-more a:hover {
+  background-color: #f4b6ab;
+  transform: translateY(-2px);
+}
+
+.see-more a:active {
+  transform: translateY(0);
+}
+.frog{
+  width: 170px;
+}

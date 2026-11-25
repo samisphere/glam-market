@@ -35,7 +35,7 @@ export function renderOrderSummary() {
     Delivery date: <span>${dateString}</span>
     </div>
     <div class="product">
-      <img src="${matchingProduct.image}" alt="" />
+      <img src="../assets/${matchingProduct.image}" alt="" />
       <div class="product-details">
         <div class="product-name">${matchingProduct.getName()}</div>
       </div>
@@ -52,10 +52,10 @@ export function renderOrderSummary() {
       </div>
       <div class="product-actions">
         <button class="update" data-product-id="${matchingProduct.id}">
-          <img src="images/icons/update.svg" alt="" /> Update
+          <img src="../assets/images/icons/update.svg" alt="" /> Update
         </button>
         <button class="delete" data-product-id="${matchingProduct.id}">
-          <img src="images/icons/trash.svg" alt="" /> Delete
+          <img src="../assets/images/icons/trash.svg" alt="" /> Delete
         </button>
       </div>
     </div>
@@ -71,31 +71,31 @@ export function renderOrderSummary() {
   } else {
     document.querySelector(".cart-title").style.display = "none";
     document.querySelector(".empty-cart-container").style.display = "block";
-    document.querySelector(".order-summary").style.display = "none";
+    document.querySelector(".order-container").style.display = "none";
     document.querySelector(".ordered-products").innerHTML = "";
     document.querySelector(".cart-title").style.display = "none";
     products.forEach((product) => {
       productsHTML += `
       <div class="product-container">
         <div class="product-image-container">
-        <img src="${product.image}" alt="" />
+        <img src="../assets/${product.image}" alt="" />
         </div>
         <div class="product-name">${product.getName()}</div>
         <div class="product-rating">
-        <img src="${product.getStarURL()}" alt="" />
+        <img src="../assets/${product.getStarURL()}" alt="" />
         <div class="product-rating-count">${product.rating.count}</div>
         </div>
         <div class="product-price">${product.getPrice()}</div>
         <div class="product-spacer"></div>
         <button class="add-to-cart" data-product-id="${product.id}">
-          Add to Cart <img src="images/icons/cart.svg" alt="" />
+          Add to Cart <img src="../assets/images/icons/cart.svg" alt="" />
         </button>
       </div>
       `;
     });
   }
   document.querySelector(".ordered-products").innerHTML = cartSummary;
-  document.querySelector(".suggestions-products").innerHTML = productsHTML;
+  document.querySelector(".products-grid").innerHTML = productsHTML;
 
   function deliveryOptionHTML(matchingProduct, cartItem) {
     let html = "";
@@ -168,7 +168,7 @@ export function renderOrderSummary() {
     );
     const quantityLabel = product.querySelector(".quantity-label");
     if (updateButton.textContent.trim() === "Update") {
-      updateButton.innerHTML = '<img src="../images/icons/check.svg"> Done';
+      updateButton.innerHTML = '<img src="../assets/images/icons/check.svg"> Done';
       minusButton.onclick = () => {
         cart.forEach((cartItem) => {
           if (cartItem.productId === productId && cartItem.quantity >= 1) {
@@ -193,7 +193,7 @@ export function renderOrderSummary() {
         });
       };
     } else if (updateButton.textContent.trim() === "Done") {
-      updateButton.innerHTML = '<img src="images/icons/repeat.svg"> Update';
+      updateButton.innerHTML = '<img src="../assets/images/icons/repeat.svg"> Update';
       quantityEditor.classList.remove("quantity-editor-visible");
 
       updateCartItemQuantity(productId, cartQuantity);

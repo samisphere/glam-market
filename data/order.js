@@ -14,7 +14,7 @@ export function addToOrders(
   paymentMethod,
   address,
 ) {
-  const orderId = `#ORD-RK-${crypto.randomUUID()}`;
+  const orderId = `#ORD-RK-${crypto.randomUUID().slice(0, 8).toUpperCase()}`;
   const today = dayjs();
   const orderDateString = today.format("dddd, MMMM D, YYYY");
 
@@ -32,7 +32,7 @@ export function addToOrders(
   saveToStorage();
 }
 
-export function addItems(productId, name, quantity, deliveryString) {
+export function addItems(productId, name, quantity, deliveryString,shipping) {
   let status = "processing";
   items.push({
     productId: productId,
@@ -40,9 +40,21 @@ export function addItems(productId, name, quantity, deliveryString) {
     quantity: quantity,
     deliveryOptions: deliveryString,
     status: status,
+    shipping: shipping
   });
 }
 
 function saveToStorage() {
   localStorage.setItem("orders", JSON.stringify(orders));
+}
+
+
+export function getOrderIndex(orderId) {
+  let orderIndex
+    orders.forEach((order, index) => {
+    if (order.id === orderId) {
+       orderIndex = index;
+    }
+    })
+  return orderIndex
 }

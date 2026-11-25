@@ -1,27 +1,27 @@
 @font-face {
   font-family: "Quicksand";
-  src: url("../fonts/Quicksand-Regular.ttf") format("truetype");
+  src: url("../../assets/fonts/Quicksand-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Quicksand";
-  src: url("../fonts/Quicksand-Medium.ttf") format("truetype");
+  src: url("../../assets/fonts/Quicksand-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Quicksand";
-  src: url("../fonts/Quicksand-SemiBold.ttf") format("truetype");
+  src: url("../../assets/fonts/Quicksand-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Quicksand";
-  src: url("../fonts/Quicksand-Bold.ttf") format("truetype");
+  src: url("../../assets/fonts/Quicksand-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
@@ -43,65 +43,6 @@
   --hover: #f7e1df;
   --error-backgorund: #811112;
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: "Quicksand";
-  font-weight: 500;
-  color: var(--default-text-color);
-}
-header {
-  background-color: var(--header-background);
-  background-image: url("../images/backgrounds/header_background.png");
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  padding: 15px 35px;
-  min-height: 140px;
-  border-bottom: 1px solid var(--border-bottom);
-}
-
-.header-logo {
-  justify-self: start;
-}
-
-.header-logo img {
-  width: 196px;
-  height: auto;
-  object-fit: contain;
-}
-
-.header-middle {
-  font-weight: 800;
-  font-size: 32px;
-  color: var(--default-text-color);
-  text-align: center;
-}
-.order-page-title {
-  font-weight: 800;
-  font-size: 32px;
-  color: var(--default-text-color);
-  text-align: center;
-}
-
-.header-bow {
-  justify-self: end;
-}
-
-.header-bow img {
-  width: 112px;
-  height: auto;
-  object-fit: contain;
-}
-
-/* ==============================
-   GENERAL STYLING
-================================= */
 
 * {
   margin: 0;

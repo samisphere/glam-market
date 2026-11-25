@@ -1,4 +1,4 @@
-import { cart, addToCart } from "../data/cart.js";
+import { cart, addToCart, updateCartQunatity } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { loadSearch } from "./search/search.js";
 let productsHTML = "";
@@ -6,11 +6,11 @@ products.forEach((product) => {
   productsHTML += `
           <div class="product-container">
           <div class="product-image-container">
-            <img src="${product.image}" alt="" />
+            <img src="assets/${product.image}" alt="" />
           </div>
           <div class="product-name">${product.getName()}</div>
           <div class="product-rating">
-            <img src="${product.getStarURL()}" alt="" />
+            <img src="assets/${product.getStarURL()}" alt="" />
             <div class="product-rating-count">${product.rating.count}</div>
           </div>
           <div class="product-price">${product.getPrice()}</div>
@@ -30,10 +30,10 @@ products.forEach((product) => {
           </div>
           <div class="product-spacer"></div>
           <div class="added-to-cart">
-            <img src="images/icons/checkbox.svg" alt="" /> Added
+            <img src="assets/images/icons/checkbox.svg" alt="" /> Added
           </div>
           <button class="add-to-cart" data-product-id="${product.id}">
-            Add to Cart <img src="images/icons/cart.svg" alt="" />
+            Add to Cart <img src="assets/images/icons/cart.svg" alt="" />
           </button>
         </div>
   `;
@@ -41,14 +41,7 @@ products.forEach((product) => {
 document.querySelector(".products-grid").innerHTML = productsHTML;
 
 updateCartQunatity()
-function updateCartQunatity() {
-  let cartQuantity = 0;
-  cart.forEach((cartItem) => {
-    cartQuantity += cartItem.quantity;
-  });
 
-  document.querySelector(".cart-ammount").innerHTML = cartQuantity;
-}
 
 function displayAddedMessage(addedMessge) {
   addedMessge.classList.add("visible");

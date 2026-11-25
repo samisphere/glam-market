@@ -1,27 +1,27 @@
 @font-face {
   font-family: "Quicksand";
-  src: url("../fonts/Quicksand-Regular.ttf") format("truetype");
+  src: url("../../../assets/fonts/Quicksand-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Quicksand";
-  src: url("../fonts/Quicksand-Medium.ttf") format("truetype");
+  src: url("../../../assets/fonts/Quicksand-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Quicksand";
-  src: url("../fonts/Quicksand-SemiBold.ttf") format("truetype");
+  src: url("../../../assets/fonts/Quicksand-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Quicksand";
-  src: url("../fonts/Quicksand-Bold.ttf") format("truetype");
+  src: url("../../../assets/fonts/Quicksand-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
@@ -54,7 +54,7 @@ body {
 
 header {
   background-color: var(--header-background);
-  background-image: url("../images/backgrounds/header_background.png");
+  background-image: url("../../../assets/images/backgrounds/header_background.png");
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -270,7 +270,7 @@ header {
   .bowtie-icon img {
     width: 85px;
   }
-   .cat-decoration {
+  .cat-decoration {
     width: 150px;
     height: 125px;
     left: 68%;
@@ -312,7 +312,7 @@ header {
   .bowtie-icon img {
     width: 70px;
   }
-   .cat-decoration {
+  .cat-decoration {
     width: 160px;
     height: 105px;
     left: 72%;
@@ -331,16 +331,15 @@ header {
   }
 }
 @media (max-width: 600px) {
-  /* Header */
   header {
     padding: 12px 10px;
   }
 
   .header-up {
     display: grid;
-    grid-template-columns: 1fr auto 65px;
+    grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     width: 100%;
   }
 
@@ -348,7 +347,8 @@ header {
     grid-column: 1;
     grid-row: 1;
     flex: none;
-    margin-right: 20px;
+    margin: 0;
+    min-width: 0;
   }
 
   .header-left img {
@@ -360,15 +360,16 @@ header {
     grid-row: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    justify-content: flex-end;
+    gap: 8px;
     margin: 0;
     flex: none;
+    min-width: 0;
   }
 
   .returns-order {
     font-size: 12px;
-    margin-left: 20px;
+    margin: 0;
   }
 
   .order {
@@ -378,8 +379,8 @@ header {
   .cart-profile {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-left: 20px;
+    gap: 6px;
+    margin: 0;
   }
 
   .cart img,
@@ -392,30 +393,25 @@ header {
     font-size: 10px;
   }
 
+  /* Hide the decorative bow on smaller screens */
   .bowtie-icon {
-    display: flex;
-    grid-column: 3;
-    grid-row: 1;
-    justify-content: flex-end;
-    align-items: center;
-    margin-left: 30px;
-  }
-  .bowtie-icon img {
-    width: 65px;
-    height: auto;
+    display: none;
   }
 
   /* Search */
   .header-middle {
     grid-column: 1 / -1;
     grid-row: 2;
-    order: initial;
     width: 100%;
     max-width: none;
+    min-width: 0;
     height: 42px;
+    margin: 0;
   }
 
   .header-middle input {
+    width: 100%;
+    min-width: 0;
     font-size: 14px;
     border-radius: 12px;
   }
@@ -427,16 +423,22 @@ header {
 
   /* Navigation */
   .header-nav {
-    gap: 12px 18px;
+    gap: 8px;
     padding: 8px 0;
     margin-top: 5px;
+    justify-content: space-around;
   }
 
   .header-nav a {
     font-size: 14px;
+    padding: 6px 12px;
   }
+
   .cat-decoration {
-    display: none;
+    width: 100px;
+    height: 105px;
+    left: 80%;
+    top: -33px;
   }
 }
 @media (max-width: 360px) {
@@ -474,11 +476,6 @@ header {
     font-size: 13px;
   }
 }
-
-
-
-
-
 
 .header-middle {
   position: relative;

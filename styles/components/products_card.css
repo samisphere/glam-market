@@ -145,45 +145,6 @@
   transform: translateY(0);
   visibility: visible;
 }
-.see-more {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 40px 0 20px;
-}
-
-.see-more a {
-  display: inline-block;
-  padding: 10px 40px;
-  width: 200px;
-  text-align: center;
-  background-color: var(--header-background);
-  color: var(--default-text-color);
-  font-family: inherit;
-  font-size: 17px;
-  font-weight: 700;
-  text-decoration: none;
-  border-radius: 10px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.see-more a:hover {
-  background-color: #f4b6ab;
-  transform: translateY(-2px);
-}
-
-.see-more a:active {
-  transform: translateY(0);
-}
-.frog{
-  width: 170px;
-}
-/* =====================================
-   RESPONSIVE DESIGN
-   ===================================== */
-
-/* ---------- Smaller desktops / laptops ---------- */
 
 @media (max-width: 1200px) {
   /* Products */
@@ -192,10 +153,7 @@
   }
 }
 
-/* ---------- Tablets / smaller laptops ---------- */
-
 @media (max-width: 900px) {
-  /* Products */
   .products-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
@@ -210,10 +168,8 @@
   }
 }
 
-/* ---------- Mobile phones ---------- */
 
 @media (max-width: 600px) {
-  /* Products */
   .main {
     padding: 20px 12px;
   }
@@ -273,8 +229,6 @@
     height: 22px;
   }
 }
-
-/* ---------- Very small phones ---------- */
 
 @media (max-width: 360px) {
   .products-grid {
