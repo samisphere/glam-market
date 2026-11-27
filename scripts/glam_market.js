@@ -40,8 +40,7 @@ products.forEach((product) => {
 });
 document.querySelector(".products-grid").innerHTML = productsHTML;
 
-updateCartQunatity()
-
+updateCartQunatity();
 
 function displayAddedMessage(addedMessge) {
   addedMessge.classList.add("visible");
@@ -57,11 +56,38 @@ document.querySelectorAll(".add-to-cart").forEach((addCartButton) => {
     const quantity = Number(selectQuantity.value);
     const productId = addCartButton.dataset.productId;
     const addedMessge = productContainer.querySelector(".added-to-cart");
-    
-    displayAddedMessage(addedMessge)
+
+    displayAddedMessage(addedMessge);
     addToCart(productId, quantity);
     updateCartQunatity();
   });
 });
 
-loadSearch()
+loadSearch();
+
+//forlogged in user
+const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+console.log(loggedInUser);
+
+const profileContainer = document.querySelector(".profile-container");
+
+if (loggedInUser) {
+  const [firstName, lastName] = loggedInUser.fullName.split(" ");
+  profileContainer.innerHTML = `
+    <a href="/pages/accounts/login.html" class="profile">
+       <img class="profile-img" src="/assets/images/icons/logged_user.svg" alt="" />
+    </a>
+    <span class="profile-name">${firstName}</span>
+     <img
+      class="dropdown-icon"
+      src="/assets/images/icons/drop-down.svg"
+      alt=""
+    />
+    `;
+} else {
+  profileContainer.innerHTML = `
+    <a href="/pages/accounts/login.html" class="profile">
+      <img src="/assets/images/icons/user.svg" alt="" />
+    </a>
+    `;
+}

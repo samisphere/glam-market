@@ -175,10 +175,35 @@ header {
   font-weight: 700;
   color: var(--important-icon-color);
 }
+.cart-profile-seperator {
+  width: 1px;
+  height: 35px;
+  margin: 10px;
+  background-color: var(--border-bottom);
+}
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
 .profile img {
   width: 35px;
   height: 35px;
-  cursor: pointer;
+  display: block;
+}
+
+.profile-name {
+  font-family: "Quicksand", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--default-text-color);
+}
+
+.dropdown-icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
 }
 .bowtie-icon img {
   width: 112px;

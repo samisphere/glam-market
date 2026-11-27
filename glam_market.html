@@ -6,7 +6,7 @@
     <title>Glam Market</title>
     <link rel="icon" href="images/icons/glam-logo.svg" />
     <link rel="stylesheet" href="styles/components/headers/main_header.css" />
-    <link rel="stylesheet" href="styles/components/products_card.css">
+    <link rel="stylesheet" href="styles/components/products_card.css" />
     <link rel="stylesheet" href="styles/pages/glam_market.css" />
   </head>
   <body>
@@ -18,7 +18,11 @@
           /></a>
         </div>
         <form class="header-middle">
-          <input class="search-input" type="text" placeholder="search items ..." />
+          <input
+            class="search-input"
+            type="text"
+            placeholder="search items ..."
+          />
           <button type="submit" class="search-button">
             <img src="/assets/images/icons/search.svg" alt="" />
           </button>
@@ -35,9 +39,12 @@
               <img src="/assets/images/icons/main-cart.svg" alt="" />
               <span class="cart-ammount"></span>
             </a>
-            <a href="" class="profile">
-              <img src="/assets/images/icons/user.svg" alt="" />
-            </a>
+            <div class="cart-profile-seperator"></div>
+            <div class="profile-container">
+              <a href="/pages/accounts/login.html" class="profile">
+                <img src="/assets/images/icons/user.svg" alt="" />
+              </a>
+            </div>
           </div>
           <div class="bowtie-icon">
             <img src="/assets/images/illustrations/bow-tie.svg" alt="" />
@@ -61,9 +68,8 @@
     <div class="main">
       <div class="products-grid"></div>
       <div class="see-more">
-        <a href="pages/shop.html">See More
-      </a>
-      <img class = 'frog' src="/assets/images/illustrations/frog.svg" alt="">
+        <a href="pages/shop.html">See More </a>
+        <img class="frog" src="/assets/images/illustrations/frog.svg" alt="" />
       </div>
     </div>
     <script type="module" src="scripts/glam_market.js"></script>
